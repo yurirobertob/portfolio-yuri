@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Promolândia — Yuri Roberto</title>
+<meta name="description" content="Case study: a multi-platform deal distribution engine built solo — scraping, scoring, and automated publishing across 4 marketplaces.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promolândia — Yuri Roberto">
+<meta property="og:description" content="Case study: a multi-platform deal distribution engine built solo — scraping, scoring, and automated publishing across 4 marketplaces.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Promolândia — Yuri Roberto">
+<meta name="twitter:description" content="Case study: a multi-platform deal distribution engine built solo — scraping, scoring, and automated publishing across 4 marketplaces.">
+<link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: rgb(255,255,255);
+    --text: rgb(48,48,48);
+    --accent: rgb(94,103,230);
+    --border: rgb(218,218,218);
+    --muted: rgb(143,143,143);
+    --card-bg: rgb(245,245,245);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: rgb(26,26,27);
+      --text: rgb(255,255,255);
+      --accent: rgb(208,255,113);
+      --border: rgb(92,92,92);
+      --muted: rgb(181,181,181);
+      --card-bg: rgb(51,51,51);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  header a { color: var(--text); text-decoration: none; font-size: 14px; }
+  .brand { font-family: "Antonio", sans-serif; font-size: 20px; letter-spacing: 0.02em; }
+  nav { display: flex; gap: 24px; }
+  nav a.active { color: var(--accent); }
+  main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+  .eyebrow { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
+  h1 { font-family: "Antonio", sans-serif; font-size: 40px; margin: 0 0 24px; }
+  .meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin: 0 0 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .meta strong { color: var(--text); }
+  h2 { font-family: "Antonio", sans-serif; font-size: 24px; margin: 48px 0 16px; }
+  p { line-height: 1.6; font-size: 15px; margin: 0 0 16px; }
+  ul { line-height: 1.6; font-size: 15px; padding-left: 20px; margin: 0 0 16px; }
+  li { margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 32px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 500; }
+  .note { color: var(--muted); font-size: 13px; font-style: italic; margin-top: 32px; }
+  .back { display: inline-block; margin-top: 48px; color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { text-align: center; padding: 32px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/">Yuri Roberto</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a class="active" href="/case-studies">Case Studies</a>
+  </nav>
+</header>
+<main>
+  <p class="eyebrow">Case Study</p>
+  <h1>Promolândia: Building a Multi-Platform Deal Distribution Engine</h1>
+  <div class="meta">
+    <span><strong>Role:</strong> Solo builder — architecture, backend, scraping, scoring, growth</span>
+    <span><strong>Stack:</strong> Node.js, PostgreSQL, Prisma, Next.js, cron-based orchestration</span>
+    <span><strong>Status:</strong> Live in production since May 2026</span>
+  </div>
+
+  <h2>The problem</h2>
+  <p>Brazilian consumers rely on manual "deal-finder" groups (WhatsApp, Telegram) to catch discounts before they sell out, but almost all of them are run by a person copy-pasting links all day. That doesn't scale, doesn't run 24/7, and can't personalize by category or timing.</p>
+  <p>I built Promolândia to replace the manual layer entirely: a backend service that finds real discounts across 4 marketplaces, scores them, and publishes them automatically to Telegram and WhatsApp — with affiliate monetization built into the link layer.</p>
+
+  <h2>Architecture</h2>
+  <p><strong>Ingestion — one integration pattern per marketplace, because none of them play the same:</strong></p>
+  <ul>
+    <li><strong>Mercado Livre:</strong> direct SSR scraping (no official deals API). Required a custom anti-bot layer — rotating Chrome UA/Sec-CH-UA headers, cookie persistence across paginated requests, randomized jitter between requests — to stay under the radar of an in-house anti-bot system, at zero API cost.</li>
+    <li><strong>Amazon:</strong> blocked at the infrastructure level (AWS WAF + CloudFront JS challenge on any datacenter IP). Solved by routing through SerpApi's <code>engine=amazon</code>, cutting API calls in half versus the naive <code>google_shopping</code> approach while tripling the yield of deals with valid original-price data.</li>
+    <li><strong>Shopee &amp; AliExpress:</strong> integrated via their official affiliate Open Platform APIs once approved — GraphQL for Shopee, REST for AliExpress, including bulk LLM-based title translation (AliExpress feeds return English titles).</li>
+  </ul>
+
+  <p><strong>Scoring — each marketplace gets its own weighted model</strong>, because "a good deal" means something different per audience: Mercado Livre is impulse-buy territory (heavy weight on absolute price), Amazon skews toward gamer/electronics (weight shifts to rating + review count + category), Shopee factors historical sales volume into the score. All models share a discount-percentage floor as a hard filter before scoring even runs.</p>
+
+  <p><strong>Deduplication:</strong> a title-normalization step (strips units, sizes, numbers, stopwords) blocks near-duplicate posts — e.g. the same product in three sizes — across a 7-day rolling window, scoped per platform to avoid false positives between marketplaces with overlapping inventory.</p>
+
+  <p><strong>Distribution:</strong> results are published via scheduled jobs (multiple crons per platform, tuned per API rate limit) to a Telegram channel and a WhatsApp community, through the Evolution API for WhatsApp delivery.</p>
+
+  <p><strong>Monetization + analytics layer:</strong> every outbound link is rewritten through a self-hosted URL shortener (<code>promolandia.link</code>) that logs every click with a timestamp. That data feeds a dashboard showing click volume by hour, weekday, platform and category — closing the loop from "what we post" to "what people actually click," which then feeds back into what to prioritize.</p>
+
+  <h2>Results (first 46 days in production)</h2>
+  <table>
+    <tr><th>Metric</th><th>Value</th></tr>
+    <tr><td>Deals published</td><td>2,686</td></tr>
+    <tr><td>Affiliate links generated &amp; tracked</td><td>3,847</td></tr>
+    <tr><td>Tracked clicks</td><td>145</td></tr>
+    <tr><td>Marketplaces integrated</td><td>4 (Mercado Livre, Shopee, AliExpress, Amazon)</td></tr>
+    <tr><td>Manual intervention required</td><td>0 — fully automated pipeline</td></tr>
+    <tr><td>Infra cost</td><td>~R$0 (self-hosted VPS, free-tier APIs where available)</td></tr>
+  </table>
+
+  <h2>What this demonstrates</h2>
+  <ul>
+    <li><strong>Growth engineering, not just automation:</strong> the project isn't "a script that posts things" — it's a pipeline with per-channel acquisition logic, a scoring system tuned to each platform's buyer psychology, and a feedback loop (click analytics → content strategy) that's the same loop any growth team runs, just built from scratch.</li>
+    <li><strong>Working around real-world constraints without official support:</strong> shipped a production scraper against an actively defended marketplace (anti-bot headers, WAF bypass strategy) when there was no API path available, and knew when to switch to an official API path once one existed.</li>
+    <li><strong>Full-stack ownership:</strong> backend services, database schema, scheduling/orchestration, and the analytics dashboard were all built and are maintained solo.</li>
+  </ul>
+
+  <p class="note">Next section to add once available: community growth numbers (WhatsApp group size, growth rate) once the acquisition phase (Meta Ads + referral loop) reports results.</p>
+
+  <a class="back" href="/case-studies">&larr; All case studies</a>
+</main>
+<footer>Yuri Roberto — Growth Engineer</footer>
+</body>
+</html>
