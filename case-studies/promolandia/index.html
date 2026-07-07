@@ -34,6 +34,7 @@
     }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--bg);
@@ -47,26 +48,132 @@
     justify-content: space-between;
     padding: 24px 32px;
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
   }
   header a { color: var(--text); text-decoration: none; font-size: 14px; }
   .brand { font-family: "Antonio", sans-serif; font-size: 20px; letter-spacing: 0.02em; }
-  nav { display: flex; gap: 24px; }
+  nav { display: flex; gap: 28px; }
+  nav a { position: relative; padding-bottom: 4px; transition: color 0.2s ease; }
+  nav a:hover { color: var(--accent); }
   nav a.active { color: var(--accent); }
-  main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
-  .eyebrow { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
-  h1 { font-family: "Antonio", sans-serif; font-size: 40px; margin: 0 0 24px; }
-  .meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin: 0 0 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-  .meta strong { color: var(--text); }
-  h2 { font-family: "Antonio", sans-serif; font-size: 24px; margin: 48px 0 16px; }
-  p { line-height: 1.6; font-size: 15px; margin: 0 0 16px; }
-  ul { line-height: 1.6; font-size: 15px; padding-left: 20px; margin: 0 0 16px; }
-  li { margin-bottom: 10px; }
-  table { width: 100%; border-collapse: collapse; margin: 16px 0 32px; font-size: 14px; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-  th { color: var(--muted); font-weight: 500; }
-  .note { color: var(--muted); font-size: 13px; font-style: italic; margin-top: 32px; }
-  .back { display: inline-block; margin-top: 48px; color: var(--accent); text-decoration: none; font-size: 14px; }
-  footer { text-align: center; padding: 32px; color: var(--muted); font-size: 12px; }
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -5px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 24px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -180px; right: -160px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 16px;
+  }
+  h1 {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+  }
+  .meta { display: flex; gap: 28px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .meta strong { color: var(--text); font-weight: 600; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  h2 {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.005em;
+    margin: 56px 0 18px;
+  }
+  main > p:first-of-type + h2:first-of-type,
+  h2:first-child { margin-top: 0; }
+  p { line-height: 1.65; font-size: 15.5px; margin: 0 0 16px; }
+  ul { line-height: 1.65; font-size: 15.5px; padding-left: 20px; margin: 0 0 16px; }
+  li { margin-bottom: 12px; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.9em;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 20px 0 36px;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .stat .value {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .stat .label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  .note {
+    color: var(--muted);
+    font-size: 13.5px;
+    font-style: italic;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 48px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .back:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
@@ -79,16 +186,21 @@
     <a class="active" href="/case-studies">Case Studies</a>
   </nav>
 </header>
-<main>
-  <p class="eyebrow">Case Study</p>
-  <h1>Promolândia: Building a Multi-Platform Deal Distribution Engine</h1>
-  <div class="meta">
-    <span><strong>Role:</strong> Solo builder — architecture, backend, scraping, scoring, growth</span>
-    <span><strong>Stack:</strong> Node.js, PostgreSQL, Prisma, Next.js, cron-based orchestration</span>
-    <span><strong>Status:</strong> Live in production since May 2026</span>
-  </div>
 
-  <h2>The problem</h2>
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Case Study</p>
+    <h1>Promolândia: Building a Multi-Platform Deal Distribution Engine</h1>
+    <div class="meta">
+      <span><strong>Role:</strong> Solo builder — architecture, backend, scraping, scoring, growth</span>
+      <span><strong>Stack:</strong> Node.js, PostgreSQL, Prisma, Next.js, cron-based orchestration</span>
+      <span><strong>Status:</strong> Live in production since May 2026</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <h2 style="margin-top:0">The problem</h2>
   <p>Brazilian consumers rely on manual "deal-finder" groups (WhatsApp, Telegram) to catch discounts before they sell out, but almost all of them are run by a person copy-pasting links all day. That doesn't scale, doesn't run 24/7, and can't personalize by category or timing.</p>
   <p>I built Promolândia to replace the manual layer entirely: a backend service that finds real discounts across 4 marketplaces, scores them, and publishes them automatically to Telegram and WhatsApp — with affiliate monetization built into the link layer.</p>
 
@@ -109,15 +221,14 @@
   <p><strong>Monetization + analytics layer:</strong> every outbound link is rewritten through a self-hosted URL shortener (<code>promolandia.link</code>) that logs every click with a timestamp. That data feeds a dashboard showing click volume by hour, weekday, platform and category — closing the loop from "what we post" to "what people actually click," which then feeds back into what to prioritize.</p>
 
   <h2>Results (first 46 days in production)</h2>
-  <table>
-    <tr><th>Metric</th><th>Value</th></tr>
-    <tr><td>Deals published</td><td>2,686</td></tr>
-    <tr><td>Affiliate links generated &amp; tracked</td><td>3,847</td></tr>
-    <tr><td>Tracked clicks</td><td>145</td></tr>
-    <tr><td>Marketplaces integrated</td><td>4 (Mercado Livre, Shopee, AliExpress, Amazon)</td></tr>
-    <tr><td>Manual intervention required</td><td>0 — fully automated pipeline</td></tr>
-    <tr><td>Infra cost</td><td>~R$0 (self-hosted VPS, free-tier APIs where available)</td></tr>
-  </table>
+  <div class="stats">
+    <div class="stat"><div class="value">2,686</div><div class="label">Deals published</div></div>
+    <div class="stat"><div class="value">3,847</div><div class="label">Affiliate links generated &amp; tracked</div></div>
+    <div class="stat"><div class="value">145</div><div class="label">Tracked clicks</div></div>
+    <div class="stat"><div class="value">4</div><div class="label">Marketplaces integrated — Mercado Livre, Shopee, AliExpress, Amazon</div></div>
+    <div class="stat"><div class="value">0</div><div class="label">Manual intervention required — fully automated pipeline</div></div>
+    <div class="stat"><div class="value">~R$0</div><div class="label">Infra cost — self-hosted VPS, free-tier APIs where available</div></div>
+  </div>
 
   <h2>What this demonstrates</h2>
   <ul>
