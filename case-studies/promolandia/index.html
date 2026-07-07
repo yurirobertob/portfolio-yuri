@@ -104,6 +104,64 @@
   .meta { display: flex; gap: 28px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
   .meta strong { color: var(--text); font-weight: 600; }
 
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .hero-stat {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .hero-stat .value {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--accent);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .hero-stat .label { font-size: 12px; color: var(--muted); line-height: 1.35; }
+
+  .arch-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 22px;
+  }
+  .arch-badges span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0 36px;
+  }
+  .demo-card {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .demo-card .demo-title {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .demo-card p { font-size: 14px; margin: 0; }
+
   main { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
   h2 {
     font-family: "Antonio", sans-serif;
@@ -196,6 +254,11 @@
       <span><strong>Stack:</strong> Node.js, PostgreSQL, Prisma, Next.js, cron-based orchestration</span>
       <span><strong>Status:</strong> Live in production since May 2026</span>
     </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="value">2,686</div><div class="label">Deals published in 46 days</div></div>
+      <div class="hero-stat"><div class="value">4</div><div class="label">Marketplaces integrated</div></div>
+      <div class="hero-stat"><div class="value">~R$0</div><div class="label">Infra cost</div></div>
+    </div>
   </div>
 </div>
 
@@ -205,6 +268,13 @@
   <p>I built Promolândia to replace the manual layer entirely: a backend service that finds real discounts across 4 marketplaces, scores them, and publishes them automatically to Telegram and WhatsApp — with affiliate monetization built into the link layer.</p>
 
   <h2>Architecture</h2>
+  <div class="arch-badges">
+    <span>Ingestion</span>
+    <span>Scoring</span>
+    <span>Deduplication</span>
+    <span>Distribution</span>
+    <span>Monetization</span>
+  </div>
   <p><strong>Ingestion — one integration pattern per marketplace, because none of them play the same:</strong></p>
   <ul>
     <li><strong>Mercado Livre:</strong> direct SSR scraping (no official deals API). Required a custom anti-bot layer — rotating Chrome UA/Sec-CH-UA headers, cookie persistence across paginated requests, randomized jitter between requests — to stay under the radar of an in-house anti-bot system, at zero API cost.</li>
@@ -231,11 +301,20 @@
   </div>
 
   <h2>What this demonstrates</h2>
-  <ul>
-    <li><strong>Growth engineering, not just automation:</strong> the project isn't "a script that posts things" — it's a pipeline with per-channel acquisition logic, a scoring system tuned to each platform's buyer psychology, and a feedback loop (click analytics → content strategy) that's the same loop any growth team runs, just built from scratch.</li>
-    <li><strong>Working around real-world constraints without official support:</strong> shipped a production scraper against an actively defended marketplace (anti-bot headers, WAF bypass strategy) when there was no API path available, and knew when to switch to an official API path once one existed.</li>
-    <li><strong>Full-stack ownership:</strong> backend services, database schema, scheduling/orchestration, and the analytics dashboard were all built and are maintained solo.</li>
-  </ul>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <div class="demo-title">Growth engineering, not just automation</div>
+      <p>Not "a script that posts things" — a pipeline with per-channel acquisition logic, a scoring system tuned to each platform's buyer psychology, and a feedback loop (click analytics → content strategy) that's the same loop any growth team runs, just built from scratch.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Working around real-world constraints</div>
+      <p>Shipped a production scraper against an actively defended marketplace (anti-bot headers, WAF bypass strategy) when there was no API path available, and knew when to switch to an official API path once one existed.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Full-stack ownership</div>
+      <p>Backend services, database schema, scheduling/orchestration, and the analytics dashboard were all built and are maintained solo.</p>
+    </div>
+  </div>
 
   <p class="note">Next section to add once available: community growth numbers (WhatsApp group size, growth rate) once the acquisition phase (Meta Ads + referral loop) reports results.</p>
 

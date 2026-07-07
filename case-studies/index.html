@@ -145,6 +145,10 @@
     border-radius: 6px;
     padding: 4px 10px;
   }
+  .card-stats { display: flex; gap: 20px; margin: 0 0 18px; }
+  .card-stats div { display: flex; flex-direction: column; }
+  .card-stats .n { font-family: "Antonio", sans-serif; font-weight: 700; font-size: 20px; color: var(--accent); line-height: 1.05; }
+  .card-stats .l { font-size: 11px; color: var(--muted); }
 
   .card.soon {
     opacity: 0.5;
@@ -189,6 +193,11 @@
       <span class="card-arrow">&rarr;</span>
     </div>
     <p>Multi-platform deal distribution engine — 4 marketplaces, automated scraping and scoring, affiliate monetization, live since May 2026.</p>
+    <div class="card-stats">
+      <div><span class="n">2,686</span><span class="l">Deals published</span></div>
+      <div><span class="n">4</span><span class="l">Marketplaces</span></div>
+      <div><span class="n">~R$0</span><span class="l">Infra cost</span></div>
+    </div>
     <div class="tags">
       <span class="tag">Node.js</span>
       <span class="tag">PostgreSQL</span>
