@@ -114,7 +114,9 @@
   }
 
   .card {
-    display: block;
+    display: flex;
+    align-items: stretch;
+    gap: 28px;
     position: relative;
     border: 1px solid var(--border);
     background: var(--card-bg);
@@ -129,6 +131,20 @@
     border-color: var(--accent);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px -16px rgba(0,0,0,0.25);
+  }
+  .card-text { flex: 1; min-width: 0; }
+  .card-media {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgb(20,20,21);
+  }
+  .card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 680px) {
+    .card { flex-direction: column; }
+    .card-media { width: 100%; height: 160px; order: -1; }
   }
   .card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
   .card h2 { font-family: "Antonio", sans-serif; font-weight: 700; font-size: 28px; margin: 0 0 10px; }
@@ -188,61 +204,72 @@
   <p class="list-label">Projects</p>
 
   <a class="card" href="/case-studies/promolandia">
-    <div class="card-top">
-      <h2>Promolândia</h2>
-      <span class="card-arrow">&rarr;</span>
+    <div class="card-text">
+      <div class="card-top">
+        <h2>Promolândia</h2>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+      <p>Multi-platform deal distribution engine — 4 marketplaces, automated scraping and scoring, affiliate monetization, live since May 2026.</p>
+      <div class="card-stats">
+        <div><span class="n">2,686</span><span class="l">Deals published</span></div>
+        <div><span class="n">4</span><span class="l">Marketplaces</span></div>
+        <div><span class="n">~R$0</span><span class="l">Infra cost</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Prisma</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Claude Code</span>
+      </div>
     </div>
-    <p>Multi-platform deal distribution engine — 4 marketplaces, automated scraping and scoring, affiliate monetization, live since May 2026.</p>
-    <div class="card-stats">
-      <div><span class="n">2,686</span><span class="l">Deals published</span></div>
-      <div><span class="n">4</span><span class="l">Marketplaces</span></div>
-      <div><span class="n">~R$0</span><span class="l">Infra cost</span></div>
-    </div>
-    <div class="tags">
-      <span class="tag">Node.js</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">Prisma</span>
-      <span class="tag">Next.js</span>
-    </div>
+    <div class="card-media"><img src="/case-studies/promolandia/assets/hero.jpg" alt="Promolândia deal feed mockup" loading="lazy"></div>
   </a>
 
   <a class="card" href="/case-studies/goscout">
-    <div class="card-top">
-      <h2>GoScout</h2>
-      <span class="card-arrow">&rarr;</span>
+    <div class="card-text">
+      <div class="card-top">
+        <h2>GoScout</h2>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+      <p>Full-auto sports analytics subscription product — live data pipelines across 55 leagues, a self-calibrating stats engine, payment webhooks, and a real production incident diagnosed and fixed.</p>
+      <div class="card-stats">
+        <div><span class="n">55</span><span class="l">Leagues live</span></div>
+        <div><span class="n">75K</span><span class="l">Req/day budget</span></div>
+        <div><span class="n">100%</span><span class="l">Auto-published</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Webhooks</span>
+        <span class="tag">Claude Code</span>
+      </div>
     </div>
-    <p>Full-auto sports analytics subscription product — live data pipelines across 55 leagues, a self-calibrating stats engine, payment webhooks, and a real production incident diagnosed and fixed.</p>
-    <div class="card-stats">
-      <div><span class="n">55</span><span class="l">Leagues live</span></div>
-      <div><span class="n">75K</span><span class="l">Req/day budget</span></div>
-      <div><span class="n">100%</span><span class="l">Auto-published</span></div>
-    </div>
-    <div class="tags">
-      <span class="tag">Next.js</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">REST APIs</span>
-      <span class="tag">Webhooks</span>
-      <span class="tag">Claude</span>
-    </div>
+    <div class="card-media"><img src="/case-studies/goscout/assets/hero.jpg" alt="GoScout landing page hero" loading="lazy"></div>
   </a>
 
   <a class="card" href="/case-studies/shiftsly">
-    <div class="card-top">
-      <h2>Shiftsly</h2>
-      <span class="card-arrow">&rarr;</span>
+    <div class="card-text">
+      <div class="card-top">
+        <h2>Shiftsly</h2>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+      <p>UK-first scheduling SaaS built solo, founder to full stack — auth, Stripe billing, and a self-built growth automation agent reporting live metrics.</p>
+      <div class="card-stats">
+        <div><span class="n">0&rarr;1</span><span class="l">Solo-built product</span></div>
+        <div><span class="n">3</span><span class="l">Pricing tiers</span></div>
+        <div><span class="n">2x/day</span><span class="l">Growth agent</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">Prisma</span>
+        <span class="tag">Stripe</span>
+        <span class="tag">NextAuth</span>
+        <span class="tag">Claude Code</span>
+      </div>
     </div>
-    <p>UK-first scheduling SaaS built solo, founder to full stack — auth, Stripe billing, and a self-built growth automation agent reporting live metrics.</p>
-    <div class="card-stats">
-      <div><span class="n">0&rarr;1</span><span class="l">Solo-built product</span></div>
-      <div><span class="n">3</span><span class="l">Pricing tiers</span></div>
-      <div><span class="n">2x/day</span><span class="l">Growth agent</span></div>
-    </div>
-    <div class="tags">
-      <span class="tag">Next.js</span>
-      <span class="tag">Prisma</span>
-      <span class="tag">Stripe</span>
-      <span class="tag">NextAuth</span>
-    </div>
+    <div class="card-media"><img src="/case-studies/shiftsly/assets/hero.jpg" alt="Shiftsly landing page hero" loading="lazy"></div>
   </a>
 
   <div class="card soon">

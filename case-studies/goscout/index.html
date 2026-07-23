@@ -270,7 +270,7 @@
     <h1>GoScout: Building a Full-Auto Sports Analytics Product from Zero</h1>
     <div class="meta">
       <span><strong>Role:</strong> Solo builder — data engineering, backend, integrations, payments, ops</span>
-      <span><strong>Stack:</strong> Next.js, TypeScript, PostgreSQL (Neon), Prisma, cron-based engine, REST APIs, Claude</span>
+      <span><strong>Stack:</strong> Next.js, TypeScript, PostgreSQL (Neon), Prisma, cron-based engine, REST APIs, Claude, built with Claude Code</span>
       <span><strong>Status:</strong> Live subscription product since July 2026</span>
     </div>
     <div class="hero-stats">
@@ -300,6 +300,7 @@
   <p><strong>Publishing gates:</strong> a picked market has to clear a value gate against the real bookmaker odd, not just the model's own confidence, before it can publish, plus a minimum combined-odds floor. I enforced one principle across every gate: <em>not publishing beats publishing something wrong or weak.</em> Several markets stay switched off in production today because they never cleared validation, even when the model favored using them.</p>
   <p><strong>Payments &amp; account activation:</strong> subscription billing runs through Hubla via webhook. <code>subscription.activated</code> and <code>subscription.deactivated</code> events upsert account status by email. This is where the most instructive production incident happened, covered below.</p>
   <p><strong>Settlement:</strong> a separate cron job checks every published entry against final match stats and closes it out as hit, miss, or void automatically, including partial-leg tracking while a match is still live.</p>
+  <p><strong>LLM layer:</strong> the stats engine decides every number and every gate on its own; Claude only narrates on top of what the engine already decided, turning a row of confidence scores and odds into a plain-language explanation a subscriber can read in two seconds. The model never picks a market or sets a threshold. That split, deterministic logic decides, an LLM explains, is what keeps the narration layer from ever becoming the thing that decides whether something publishes.</p>
 
   <h2>Production incident: the payment webhook that never made a sound</h2>
   <p>This is the piece I'd point to first. It's less about writing code and more about the debugging a GTM/RevOps role needs. Subscribers were paying and not getting access. The obvious suspect, an auth token bug, had already been found and fixed once. Then it happened again, to different subscribers.</p>
@@ -350,6 +351,10 @@
     <div class="demo-card">
       <div class="demo-title">Shipping gated automation, not just automation</div>
       <p>Every market and every entry passes through explicit value and confidence gates before publishing. Lead scoring and signal-to-action workflows need the same pattern: they can't fire on noise.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Built and shipped with Claude Code</div>
+      <p>The engine, the webhook fix, and the watchdog were all built in direct pair-programming with Claude Code. The narration layer runs on Claude too, but as a scoped feature inside the product, separate from the tool I used to build the product itself.</p>
     </div>
   </div>
 
