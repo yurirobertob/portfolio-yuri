@@ -1,0 +1,360 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>GoScout — Yuri Roberto</title>
+<meta name="description" content="Case study: a full-auto sports betting analysis product built solo — live data pipelines, a stats engine, payment webhooks, and production incident response.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoScout — Yuri Roberto">
+<meta property="og:description" content="Case study: a full-auto sports betting analysis product built solo — live data pipelines, a stats engine, payment webhooks, and production incident response.">
+<meta property="og:url" content="https://yuriroberto.com/case-studies/goscout">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GoScout — Yuri Roberto">
+<meta name="twitter:description" content="Case study: a full-auto sports betting analysis product built solo — live data pipelines, a stats engine, payment webhooks, and production incident response.">
+<link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: rgb(255,255,255);
+    --text: rgb(48,48,48);
+    --accent: rgb(94,103,230);
+    --border: rgb(218,218,218);
+    --muted: rgb(143,143,143);
+    --card-bg: rgb(245,245,245);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: rgb(26,26,27);
+      --text: rgb(255,255,255);
+      --accent: rgb(208,255,113);
+      --border: rgb(92,92,92);
+      --muted: rgb(181,181,181);
+      --card-bg: rgb(51,51,51);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  header a { color: var(--text); text-decoration: none; font-size: 14px; }
+  .brand { font-family: "Antonio", sans-serif; font-size: 20px; letter-spacing: 0.02em; }
+  nav { display: flex; gap: 28px; }
+  nav a { position: relative; padding-bottom: 4px; transition: color 0.2s ease; }
+  nav a:hover { color: var(--accent); }
+  nav a.active { color: var(--accent); }
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -5px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 24px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -180px; right: -160px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 16px;
+  }
+  h1 {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+  }
+  .meta { display: flex; gap: 28px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .meta strong { color: var(--text); font-weight: 600; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .hero-stat {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .hero-stat .value {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--accent);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .hero-stat .label { font-size: 12px; color: var(--muted); line-height: 1.35; }
+
+  .arch-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 22px;
+  }
+  .arch-badges span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0 36px;
+  }
+  .demo-card {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .demo-card .demo-title {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .demo-card p { font-size: 14px; margin: 0; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  h2 {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.005em;
+    margin: 56px 0 18px;
+  }
+  main > p:first-of-type + h2:first-of-type,
+  h2:first-child { margin-top: 0; }
+  p { line-height: 1.65; font-size: 15.5px; margin: 0 0 16px; }
+  ul { line-height: 1.65; font-size: 15.5px; padding-left: 20px; margin: 0 0 16px; }
+  li { margin-bottom: 12px; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.9em;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 20px 0 36px;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .stat .value {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .stat .label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  .incident {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 0 0 20px;
+  }
+  .incident .step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .incident p { margin: 0; font-size: 15px; }
+
+  .note {
+    color: var(--muted);
+    font-size: 13.5px;
+    font-style: italic;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 48px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .back:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/">Yuri Roberto</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a class="active" href="/case-studies">Case Studies</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Case Study</p>
+    <h1>GoScout: Building a Full-Auto Sports Analytics Product from Zero</h1>
+    <div class="meta">
+      <span><strong>Role:</strong> Solo builder — data engineering, backend, integrations, payments, ops</span>
+      <span><strong>Stack:</strong> Next.js, TypeScript, PostgreSQL (Neon), Prisma, cron-based engine, REST APIs, Claude</span>
+      <span><strong>Status:</strong> Live subscription product since July 2026</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="value">55</div><div class="label">Leagues ingested and monitored live</div></div>
+      <div class="hero-stat"><div class="value">75K</div><div class="label">API requests/day budget managed in code</div></div>
+      <div class="hero-stat"><div class="value">1min</div><div class="label">Live data refresh cadence</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <h2 style="margin-top:0">The problem</h2>
+  <p>Sports betting analysis in Brazil runs on tipsters who read stats by hand and post picks with no track record anyone can audit. I built GoScout to replace that with a real data pipeline. It ingests live football data across dozens of leagues, calibrates its own confidence thresholds against historical results, and publishes betting entries automatically, with real bookmaker odds attached so every pick can be checked against what the market was offering.</p>
+  <p>It's a subscription product with Hubla-based billing, running end to end without a human in the publishing loop. Ingestion, scoring, gating, publishing, live tracking, and settlement all run on their own.</p>
+
+  <h2>Architecture</h2>
+  <div class="arch-badges">
+    <span>Ingestion</span>
+    <span>Stats engine</span>
+    <span>Calibration</span>
+    <span>Publishing gates</span>
+    <span>Payments</span>
+    <span>Settlement</span>
+  </div>
+  <p><strong>Data pipeline:</strong> a cron-driven engine on a VPS pulls fixtures, team and player stats, lineups, and odds from a sports-data REST API across 55 active leagues, inside a hard budget of <code>75,000 requests per day</code> that I manage in code. Every job runs against a per-run request cap: going over quota shuts down the whole pipeline for the rest of the day. Live matches get a dedicated <code>ingest-live</code> job on a 1-minute cadence, separate from the slower daily ingestion jobs, so live odds and stats never compete with historical backfill for the same budget.</p>
+  <p><strong>Stats engine:</strong> markets like player shots, corners, cards, and match goals get calibrated against real historical results before they're allowed to publish. A market goes live only after backtesting shows it clears a validation threshold on held-out data. Every active market carries a documented blind-training pass behind it.</p>
+  <p><strong>Publishing gates:</strong> a picked market has to clear a value gate against the real bookmaker odd, not just the model's own confidence, before it can publish, plus a minimum combined-odds floor. I enforced one principle across every gate: <em>not publishing beats publishing something wrong or weak.</em> Several markets stay switched off in production today because they never cleared validation, even when the model favored using them.</p>
+  <p><strong>Payments &amp; account activation:</strong> subscription billing runs through Hubla via webhook. <code>subscription.activated</code> and <code>subscription.deactivated</code> events upsert account status by email. This is where the most instructive production incident happened, covered below.</p>
+  <p><strong>Settlement:</strong> a separate cron job checks every published entry against final match stats and closes it out as hit, miss, or void automatically, including partial-leg tracking while a match is still live.</p>
+
+  <h2>Production incident: the payment webhook that never made a sound</h2>
+  <p>This is the piece I'd point to first. It's less about writing code and more about the debugging a GTM/RevOps role needs. Subscribers were paying and not getting access. The obvious suspect, an auth token bug, had already been found and fixed once. Then it happened again, to different subscribers.</p>
+
+  <div class="incident">
+    <div class="step-label">1 · Symptom</div>
+    <p>Two paying subscribers reported no access after checkout. It looked like a repeat of the already-fixed token bug. It wasn't.</p>
+  </div>
+  <div class="incident">
+    <div class="step-label">2 · Investigation</div>
+    <p>I checked the webhook audit table, which logs every inbound event before processing. It had <strong>zero rows</strong> since the integration existed. That ruled out a bug in the handler. The handler was never being reached.</p>
+  </div>
+  <div class="incident">
+    <div class="step-label">3 · Root cause</div>
+    <p>The webhook URL registered in the payment provider's dashboard pointed at the bare apex domain. Vercel 308-redirects that domain to the <code>www</code> subdomain at the routing layer. The payment provider doesn't follow redirects on webhook calls, so every webhook call died before reaching application code. No error, no 401, no log line, because the request never arrived: a routing configuration issue, invisible from inside the app.</p>
+  </div>
+  <div class="incident">
+    <div class="step-label">4 · Fix + verification</div>
+    <p>I corrected the URL in the provider dashboard to the canonical <code>www</code> host, then verified with a real simulated webhook POST: 200 response, event applied, row written to the audit table.</p>
+  </div>
+  <div class="incident">
+    <div class="step-label">5 · Systemic fix, not just a patch</div>
+    <p>A wrong URL is the kind of thing that breaks silently again: the provider changes something, DNS changes, someone edits the dashboard. Instead of fixing just the one URL, I shipped a watchdog cron that watches for <strong>silence</strong>, not errors. If the audit table goes more than 24 hours without a new row, it fires a Telegram alert. That covers this failure mode and any future one that produces the same symptom, without requiring me to predict the next cause.</p>
+  </div>
+
+  <h2>Results</h2>
+  <div class="stats">
+    <div class="stat"><div class="value">55</div><div class="label">Leagues ingested and live-monitored</div></div>
+    <div class="stat"><div class="value">75,000</div><div class="label">Req/day API budget enforced in code, zero overruns</div></div>
+    <div class="stat"><div class="value">100%</div><div class="label">Publishing pipeline automated — no human in the loop</div></div>
+    <div class="stat"><div class="value">0</div><div class="label">Silent webhook failures since the watchdog shipped</div></div>
+  </div>
+
+  <h2>What this demonstrates</h2>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <div class="demo-title">Root-cause debugging under production pressure</div>
+      <p>Re-reading the same code twice wouldn't have solved the webhook incident. It took forming a hypothesis, checking an audit trail, and identifying an infrastructure-layer cause, a routing redirect, instead of stopping at the first plausible app-layer explanation.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Building for the next failure, not just this one</div>
+      <p>The watchdog doesn't detect a wrong webhook URL. It detects a signal gone quiet, a more useful thing to monitor that covers failure modes I haven't seen yet.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Operating real API/data constraints</div>
+      <p>A hard daily request budget across dozens of concurrent data sources, enforced in code rather than assumed. Enrichment and scoring pipelines against rate-limited CRM and data-provider APIs need the same discipline.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Shipping gated automation, not just automation</div>
+      <p>Every market and every entry passes through explicit value and confidence gates before publishing. Lead scoring and signal-to-action workflows need the same pattern: they can't fire on noise.</p>
+    </div>
+  </div>
+
+  <a class="back" href="/case-studies">&larr; All case studies</a>
+</main>
+<footer>Yuri Roberto — Growth / GTM Engineer</footer>
+</body>
+</html>
