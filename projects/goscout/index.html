@@ -146,6 +146,10 @@
     </div>
   </section>
 
+  <div class="media-full shot" data-reveal>
+    <img src="/projects/goscout/assets/checkout.jpg" alt="GoScout checkout screen with monthly and quarterly plans" width="3200" height="1800">
+  </div>
+
   <hr class="rule">
 
   <section class="block read" data-reveal>
@@ -154,8 +158,14 @@
       <h2>What the screens sit on</h2>
       <p>A scheduled engine pulls fixtures, team and player statistics, lineups and market odds across <strong>100+ leagues</strong>, inside a hard ceiling of <strong>75,000 API requests a day</strong> that I enforce in code. Every job carries a per-run cap, because going over quota would take the product down for the rest of the day. Live matches get their own one-minute refresh so real-time data never competes with historical backfill.</p>
       <p>The rule I would defend hardest is a product one. Not publishing beats publishing something weak. Every market has to clear validation against historical results before it can appear, and several stay switched off in production because they never cleared it. One of those I wanted to ship. When the entire value of a product is a credible record, showing less is worth more.</p>
+      <p>That rule has a visible consequence. The public results page leads with the validated number, breaks it down month by month including the months that lost, and lists what sits outside the consolidated figure with the reason for each exclusion. A subscriber can audit the claim instead of taking my word for it.</p>
     </div>
   </section>
+
+  <figure class="media-full shot" data-reveal>
+    <img src="/projects/goscout/assets/track-record.jpg" alt="GoScout public results page showing the validated record and a month-by-month breakdown" width="3200" height="1800">
+    <figcaption>The public results page. Validated markets sit above the line, markets still in validation sit below it with the reason.</figcaption>
+  </figure>
 
   <hr class="rule">
 
