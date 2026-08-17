@@ -2,190 +2,184 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yuri Roberto — Product Designer who ships</title>
-<meta name="description" content="Yuri Roberto — UX/UI designer who takes products from blank page to production: interface, design system, frontend, backend, payments and infrastructure. Three products live.">
+<title>Yuri Roberto — Product Designer</title>
+<meta name="description" content="Yuri Roberto, product designer in Brazil. I design digital products and write the code that ships them. Three run in production today.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Yuri Roberto — Product Designer who ships">
-<meta property="og:description" content="UX/UI designer who takes products from blank page to production — interface, design system, frontend, backend, payments and infrastructure.">
+<meta property="og:title" content="Yuri Roberto — Product Designer">
+<meta property="og:description" content="I design digital products and write the code that ships them. Three run in production today.">
 <meta property="og:url" content="https://yuriroberto.com">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Yuri Roberto — Product Designer who ships">
-<meta name="twitter:description" content="UX/UI designer who takes products from blank page to production — interface, design system, frontend, backend, payments and infrastructure.">
+<meta name="twitter:title" content="Yuri Roberto — Product Designer">
+<meta name="twitter:description" content="I design digital products and write the code that ships them.">
 <link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
-<style>
-  .hero-split {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 48px;
-    align-items: center;
-  }
-  .hero-photo {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border);
-    aspect-ratio: 4 / 5;
-  }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 800px) {
-    .hero-split { grid-template-columns: 1fr; gap: 32px; }
-    .hero-photo { max-width: 240px; order: -1; }
-  }
-  .avail {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 6px 14px;
-    margin-bottom: 22px;
-  }
-  .avail .dot {
-    width: 7px; height: 7px;
-    border-radius: 999px;
-    background: rgb(39,217,116);
-  }
-</style>
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="/">Yuri Roberto</a>
-  <nav class="site-nav">
-    <a class="active" href="/">Home</a>
+
+<header class="masthead">
+  <a class="mark" href="/"><span class="dot"></span>Yuri Roberto</a>
+  <nav class="menu">
+    <a href="/" aria-current="page">Work</a>
     <a href="/about">About</a>
-    <a href="/projects">Work</a>
-    <a href="#contact">Contact</a>
+    <a href="mailto:design@yuriroberto.com">Contact</a>
   </nav>
 </header>
 
-<div class="page-hero">
-  <div class="wrap hero-split">
+<div class="shell">
+
+  <section class="intro">
+    <div class="intro-photo">
+      <img src="https://framerusercontent.com/images/gpYCx6o6FQgATDY1nXkDfttSmc.jpeg?width=280" alt="Yuri Roberto">
+    </div>
     <div>
-      <span class="avail"><span class="dot"></span> Available for contract &amp; freelance work</span>
-      <h1>Product design,<br>all the way to production.</h1>
-      <p class="lede">I'm a UX/UI designer who doesn't hand off at the mockup. I take products from blank page to live — interface, design system, frontend, backend, payments and the infrastructure that keeps them running. Three are in production right now.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/projects">See the work &rarr;</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <img src="https://framerusercontent.com/images/gpYCx6o6FQgATDY1nXkDfttSmc.jpeg?width=800" alt="Yuri Roberto">
-    </div>
-  </div>
-</div>
-
-<div class="wrap">
-
-  <section>
-    <p class="section-label">In production</p>
-    <h2>Not concepts. Live products with real users.</h2>
-    <div class="stat-row">
-      <div class="stat"><div class="n">3</div><div class="l">Products designed, built and shipped to production</div></div>
-      <div class="stat"><div class="n">2</div><div class="l">Live payment systems integrated — Stripe and Hubla</div></div>
-      <div class="stat"><div class="n">10</div><div class="l">Layers owned solo, from research to server ops</div></div>
-      <div class="stat"><div class="n">0</div><div class="l">Handoffs — I design it, then I ship it</div></div>
-    </div>
-  </section>
-
-  <section>
-    <p class="section-label">Selected work</p>
-    <h2>Three products, three problems.</h2>
-    <div class="work-grid">
-
-      <a class="work-card" href="/projects/goscout">
-        <div class="work-media"><img src="/projects/goscout/assets/analise-compacta-mobile.jpg" alt="GoScout compact analysis screen on mobile" loading="lazy"></div>
-        <div class="work-body">
-          <span class="tag">Product Design · Full Stack</span>
-          <h3>GoScout</h3>
-          <p>A subscription sports-analytics product. Designed the mobile-first interface, the paywall pattern and the checkout flow — then built the data pipeline and the billing behind them.</p>
-          <div class="work-scope">UX · UI · Design system · Frontend · Backend · Payments · Infra</div>
-        </div>
-      </a>
-
-      <a class="work-card" href="/projects/shiftsly">
-        <div class="work-media"><img src="/projects/shiftsly/assets/hero.jpg" alt="Shiftsly weekly schedule interface" loading="lazy"></div>
-        <div class="work-body">
-          <span class="tag">Product Design · Full Stack</span>
-          <h3>Shiftsly</h3>
-          <p>A scheduling SaaS for UK cleaning teams, built to replace WhatsApp threads. Founder, designer and engineer — from the market insight to live Stripe billing.</p>
-          <div class="work-scope">Research · UX · UI · Frontend · Backend · Auth · Stripe</div>
-        </div>
-      </a>
-
-      <a class="work-card" href="/projects/promolandia">
-        <div class="work-media"><img src="/projects/promolandia/assets/hero.jpg" alt="Promolândia deal distribution on WhatsApp and Telegram" loading="lazy"></div>
-        <div class="work-body">
-          <span class="tag">Growth Engineering</span>
-          <h3>Promolândia</h3>
-          <p>An automated deal-distribution engine across four marketplaces. Not an interface project — a systems one: scraping, scoring, publishing and click analytics, running unattended.</p>
-          <div class="work-scope">Architecture · Integrations · Scoring · Distribution · Analytics</div>
-        </div>
-      </a>
-
-    </div>
-    <p style="margin-top:28px"><a class="textlink" href="/projects">All work, including graphic design &rarr;</a></p>
-  </section>
-
-  <section>
-    <p class="section-label">How I work</p>
-    <h2>The whole stack, or it isn't shipped.</h2>
-    <p class="lede" style="margin-bottom:36px">Most portfolios stop where the hard part starts. These are the layers I actually own on every project.</p>
-    <div class="cap-grid">
-      <div class="cap">
-        <h3>Research &amp; product definition</h3>
-        <p>Finding the real problem before designing a screen for it. Shiftsly came from watching London cleaning managers run everything on WhatsApp.</p>
-      </div>
-      <div class="cap">
-        <h3>Interface &amp; design systems</h3>
-        <p>Tokens, type scales, dark-first palettes, and density rules tuned per surface — built to be implemented, not just admired.</p>
-      </div>
-      <div class="cap">
-        <h3>Frontend implementation</h3>
-        <p>Next.js, TypeScript, React and Tailwind. I build my own designs, so nothing gets lost between Figma and the browser.</p>
-      </div>
-      <div class="cap">
-        <h3>Backend &amp; data</h3>
-        <p>PostgreSQL, Prisma, REST integrations and scheduled jobs. The data model is a design decision as much as the layout is.</p>
-      </div>
-      <div class="cap">
-        <h3>Payments &amp; subscriptions</h3>
-        <p>Live Stripe and Hubla integrations — checkout, webhooks, subscription lifecycle, account states, cancellation. The flow most designers never touch.</p>
-      </div>
-      <div class="cap">
-        <h3>Production operations</h3>
-        <p>Deploys, cron scheduling, monitoring and incident response. I've debugged real outages that hit paying customers, and shipped the alerting so they don't repeat.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <p class="section-label">Contact</p>
-    <h2>Let's talk.</h2>
-    <p class="lede" style="margin-bottom:32px">Open to contract, freelance and full-time product design roles — remote, working with teams in the UK, US and Europe.</p>
-    <div class="contact-row">
-      <div class="contact-item">
-        <div class="label">Email</div>
+      <p class="intro-text">Hey, I'm Yuri, a product designer in Brazil. I design digital products and write the code that ships them, including the payment flows and the servers they run on.</p>
+      <p class="status"><i></i> Available for work</p>
+      <div class="links">
+        <a href="https://behance.net/yuriroberto" target="_blank" rel="noopener">Behance</a>
+        <a href="https://instagram.com/yuriroberto" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a>
       </div>
-      <div class="contact-item">
-        <div class="label">Phone</div>
-        <a href="tel:+5562981194490">+55 (62) 98119-4490</a>
-      </div>
-      <div class="contact-item">
-        <div class="label">Behance</div>
-        <a href="https://behance.net/yuriroberto" target="_blank" rel="noopener">behance.net/yuriroberto</a>
-      </div>
     </div>
   </section>
 
+  <section class="display" data-reveal>
+    <div>
+      <h1>Selected<br>Work</h1>
+      <p class="sub">2026 to now</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <article class="entry" data-reveal>
+    <div class="entry-head">
+      <h2 class="entry-name"><a href="/projects/goscout">GoScout</a></h2>
+      <div class="entry-body">
+        <p>GoScout reads football matches and publishes betting entries on its own. I designed every screen and built what sits under them: the pipeline that ingests 100+ leagues, the subscription billing, and the alert that wakes me when a payment webhook goes quiet.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>Product design, UI, frontend, backend, payments, infrastructure</dd></div>
+          <div class="fact"><dt>Status</dt><dd>Live, paying subscribers</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="entry-media">
+      <a href="/projects/goscout"><img src="/projects/goscout/assets/match.jpg" alt="GoScout match analysis screen" loading="lazy"></a>
+    </div>
+  </article>
+
+  <hr class="rule">
+
+  <article class="entry" data-reveal>
+    <div class="entry-head">
+      <h2 class="entry-name"><a href="/projects/shiftsly">Shiftsly</a></h2>
+      <div class="entry-body">
+        <p>Cleaning managers in London run their schedules through WhatsApp threads. I built Shiftsly to replace that: a scheduling tool for crews of five to twenty people, priced by headcount instead of seats, billing through Stripe.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>Research, product design, UI, frontend, backend, auth, billing</dd></div>
+          <div class="fact"><dt>Status</dt><dd>Live, onboarding users</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="entry-media">
+      <a href="/projects/shiftsly"><img src="/projects/shiftsly/assets/landing.jpg" alt="Shiftsly landing page and weekly schedule" loading="lazy"></a>
+    </div>
+  </article>
+
+  <hr class="rule">
+
+  <article class="entry" data-reveal>
+    <div class="entry-head">
+      <h2 class="entry-name"><a href="/projects/promolandia">Promolândia</a></h2>
+      <div class="entry-body">
+        <p>A service that scrapes four marketplaces, scores the discounts it finds, and posts them to WhatsApp and Telegram without anyone touching it. It has published 2,686 deals so far. This one is engineering, not interface work.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>Architecture, integrations, scoring, distribution, analytics</dd></div>
+          <div class="fact"><dt>Status</dt><dd>Live, runs unattended</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="entry-media">
+      <a href="/projects/promolandia"><img src="/projects/promolandia/assets/hero.jpg" alt="Promolândia deals published to WhatsApp and Telegram" loading="lazy"></a>
+    </div>
+  </article>
+
+  <hr class="rule">
+
+  <section class="display" data-reveal style="padding-top:clamp(56px,8vw,110px)">
+    <div>
+      <h2>Earlier<br>Work</h2>
+      <p class="sub">Art direction, 2019 to 2024</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <article class="entry" data-reveal>
+    <div class="entry-head">
+      <h2 class="entry-name"><a href="/projects/vulcano">Vulcano</a></h2>
+      <div class="entry-body">
+        <p>Key visuals and campaign artwork for a Brazilian energy drink, built around the brand's heat territory.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Client</dt><dd>Sol Bebidas</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>Art direction, key visuals, social</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="entry-media">
+      <a href="/projects/vulcano"><img src="https://framerusercontent.com/images/DWfsUQX0fL5UuLjRp7AwVO8IEzM.png?width=1920" alt="Vulcano Energy Drink campaign" loading="lazy"></a>
+    </div>
+  </article>
+
+  <hr class="rule">
+
+  <article class="entry" data-reveal>
+    <div class="entry-head">
+      <h2 class="entry-name"><a href="/projects/birinight">Birinight</a></h2>
+      <div class="entry-body">
+        <p>Social artwork for a ready-to-drink brand aimed at parties, where the product had to stay the hero in a crowded feed.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Client</dt><dd>Sol Bebidas</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>Art direction, social campaign</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="entry-media">
+      <a href="/projects/birinight"><img src="https://framerusercontent.com/images/OTSIRVYYWNz4iWjnbZyGiuofXs.png?width=1920" alt="Birinight campaign" loading="lazy"></a>
+    </div>
+  </article>
+
+  <hr class="rule">
+
+  <article class="entry" data-reveal>
+    <div class="entry-head">
+      <h2 class="entry-name"><a href="/projects/concebra">Triunfo Concebra</a></h2>
+      <div class="entry-body">
+        <p>Institutional and public-safety communication for a road concession operating between Brasília, Goiás and Minas Gerais. A quieter register than the drinks work.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Client</dt><dd>Triunfo Participações</dd></div>
+          <div class="fact"><dt>Scope</dt><dd>Art direction, institutional content</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="entry-media">
+      <a href="/projects/concebra"><img src="https://framerusercontent.com/images/iWvvC5qbWexQKv8SvrgIF9oIjWY.png?width=1920" alt="Triunfo Concebra campaign" loading="lazy"></a>
+    </div>
+  </article>
+
+  <footer class="foot">
+    <span>Yuri Roberto, Goiânia, Brazil</span>
+    <span><a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a></span>
+  </footer>
+
 </div>
-<footer class="site-footer">Yuri Roberto — Product Designer · Goiânia, Brazil</footer>
+
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

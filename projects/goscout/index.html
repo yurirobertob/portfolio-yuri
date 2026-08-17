@@ -3,189 +3,213 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoScout — Yuri Roberto</title>
-<meta name="description" content="Designing and shipping a subscription sports-analytics product solo — design system, paywall UX, checkout flow, data pipeline, billing webhooks and production ops.">
+<meta name="description" content="Designing and building a subscription sports analytics product alone: interface, design system, paywall, checkout, data pipeline and production monitoring.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GoScout — Yuri Roberto">
-<meta property="og:description" content="Designing and shipping a subscription sports-analytics product solo — design system, paywall UX, checkout flow, data pipeline, billing webhooks and production ops.">
+<meta property="og:description" content="Designing and building a subscription sports analytics product alone.">
 <meta property="og:url" content="https://yuriroberto.com/projects/goscout">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GoScout — Yuri Roberto">
-<meta name="twitter:description" content="Designing and shipping a subscription sports-analytics product solo.">
+<meta name="twitter:description" content="Designing and building a subscription sports analytics product alone.">
 <link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="/">Yuri Roberto</a>
-  <nav class="site-nav">
-    <a href="/">Home</a>
+
+<header class="masthead">
+  <a class="mark" href="/"><span class="dot"></span>Yuri Roberto</a>
+  <nav class="menu">
+    <a href="/">Work</a>
     <a href="/about">About</a>
-    <a class="active" href="/projects">Work</a>
-    <a href="/#contact">Contact</a>
+    <a href="mailto:design@yuriroberto.com">Contact</a>
   </nav>
 </header>
 
-<div class="page-hero">
-  <div class="wrap-read">
-    <p class="eyebrow">Product Design · Full Stack</p>
-    <h1>GoScout: designing a paywalled product people have to trust.</h1>
-    <p class="lede">A subscription sports-analytics product, designed and built solo — from the first wireframe to the cron jobs running it in production.</p>
-    <dl class="meta-strip">
-      <div>
-        <dt>My role</dt>
-        <dd>Everything. Product definition, UX, UI, design system, frontend, backend, payments, infrastructure.</dd>
+<div class="shell">
+
+  <section class="page-head">
+    <p class="label">Product design · Full stack</p>
+    <h1 class="page-h1">GoScout</h1>
+    <div class="read">
+      <div class="read-label"></div>
+      <div class="read-body">
+        <p class="page-lede">A subscription product that analyses football matches and publishes betting entries on its own. I designed every screen and built what runs underneath.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Role</dt><dd>Alone: product, UX, UI, design system, frontend, backend, payments, infrastructure</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Next.js, TypeScript, Tailwind, PostgreSQL, Prisma, Hubla</dd></div>
+          <div class="fact"><dt>Live at</dt><dd><a href="https://goscout.com.br" target="_blank" rel="noopener">goscout.com.br</a></dd></div>
+        </dl>
       </div>
-      <div>
-        <dt>Status</dt>
-        <dd>Live subscription product since July 2026 — <a href="https://goscout.com.br" target="_blank" rel="noopener">goscout.com.br</a></dd>
-      </div>
-      <div>
-        <dt>Stack</dt>
-        <dd>Next.js · TypeScript · Tailwind · PostgreSQL · Prisma · Hubla · VPS cron</dd>
-      </div>
-    </dl>
+    </div>
+  </section>
+
+  <div class="media-full" data-reveal>
+    <img src="/projects/goscout/assets/match.jpg" alt="GoScout match analysis screen" width="3200" height="1800">
   </div>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">The problem</p>
+    <div class="read-body">
+      <h2>Selling a number nobody has a reason to trust</h2>
+      <p>Betting analysis in Brazil runs on tipsters. Someone reads statistics by hand, posts a pick, and screenshots the wins while the losses quietly disappear. Nobody publishes a record you can audit.</p>
+      <p>GoScout replaces that with an engine that publishes on its own and keeps every result, including the bad days. That creates the design problem: <strong>a subscriber has to trust a number they did not calculate.</strong> The interface has to earn credibility in a category built on hype, and it has to charge for that number without feeling like a trap.</p>
+      <p>People open it on a phone, one-handed, while a match is playing.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Scope</p>
+    <div class="read-body">
+      <h2>What I owned</h2>
+      <p>Nobody else worked on this. Each layer below was a decision I made and a thing I built.</p>
+      <div class="scope">
+        <div>Product definition<span>Scope and what to leave out</span></div>
+        <div>Information architecture<span>Routes, navigation, hierarchy</span></div>
+        <div>Interface design<span>Every screen, phone first</span></div>
+        <div>Design system<span>Tokens, type, dark-first palette</span></div>
+        <div>Frontend<span>Next.js, TypeScript, Tailwind</span></div>
+        <div>Backend and schema<span>PostgreSQL, Prisma, REST</span></div>
+        <div>Data pipeline<span>100+ leagues, live ingestion</span></div>
+        <div>Payments<span>Checkout, webhooks, account states</span></div>
+        <div>Infrastructure<span>Deploys, cron, monitoring</span></div>
+        <div>Growth tracking<span>Attribution through checkout</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Design decisions</p>
+    <div class="read-body">
+      <h2>Four calls that shaped it</h2>
+
+      <h3>Hide the number, keep the noun</h3>
+      <p>My first paywall blurred whole cards. It tested badly. A wall of grey rectangles reads as a product hiding something, and people left before working out what they would even be paying for.</p>
+      <p>So I rewrote the rule. Free users see the full shape of every screen, including team names, fixtures and labels. Only the paid value gets covered. You always see what you would get, you just cannot read the number yet.</p>
+      <p><strong>The cost:</strong> this gives away more than a hard wall does, and some people stay on the free layer forever. I took that trade because a paywall someone understands converts better than one that reads as a trick, and trust is the whole product here.</p>
+
+      <h3>A floating nav pill, and a bug that only existed on real hardware</h3>
+      <p>I designed the mobile navigation as a floating pill above the safe area instead of a full-width bar, so content runs underneath it and the chrome stays light on a small screen.</p>
+      <p>It looked right in the device emulator and broke on an actual iPhone. Safari drops fixed positioning when the offset mixes <code>calc()</code> with <code>env(safe-area-inset)</code>. Separately, a Tailwind arbitrary class holding two tokens, <code>justify-[safe_center]</code>, compiles to nothing at all and reports no error.</p>
+      <p><strong>What changed:</strong> every interface change now gets checked on physical hardware before I call it done. Emulators verify layout. They do not verify the platform.</p>
+
+      <h3>Dark first, because of where people use it</h3>
+      <p>Subscribers open GoScout at night with a match on. Dark is not the alternate theme here, it is the origin. I built the palette dark and derived the light theme from it.</p>
+      <p>The system came out of studying how FotMob and Betano handle dense sports data: near-black surfaces, one brand green carrying identity, and colour reserved for meaning. The high-variance bet profile carries its own accent so nobody confuses it with the safe one while scanning.</p>
+      <p><strong>The cost:</strong> the reference I liked used a licensed typeface I cannot redistribute. I picked a free family and pushed character through weight and scale instead. Shipping legally beat matching the reference.</p>
+
+      <h3>Different density for scanning and for deciding</h3>
+      <p>Two screens do opposite jobs. The compact grid lets someone scan dozens of matches in seconds, so it runs tight rows, colour-coded probability and sortable columns. The detail view exists for the moment someone decides whether to act on one number, so it slows down and gives that number room.</p>
+      <p>Same design system, different density on purpose.</p>
+    </div>
+  </section>
+
+  <div class="media-pair" data-reveal>
+    <figure class="shot">
+      <img src="/projects/goscout/assets/grid.jpg" alt="GoScout compact probability grid with locked paid columns" width="3200" height="1800">
+      <figcaption>The compact grid. Fixtures stay readable, the paid columns carry a lock.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/projects/goscout/assets/mobile.jpg" alt="GoScout match screen on mobile with the floating bottom navigation" width="780" height="1688">
+      <figcaption>Phone view, with the floating navigation pill.</figcaption>
+    </figure>
+  </div>
+
+  <div class="media-full" data-reveal>
+    <img src="/projects/goscout/assets/fixtures.jpg" alt="GoScout fixtures list grouped by league" width="3200" height="1800">
+  </div>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Payments</p>
+    <div class="read-body">
+      <h2>The flow most designers never touch</h2>
+      <p>GoScout charges real money, so I designed and built the whole commercial surface rather than a pricing page.</p>
+      <ul>
+        <li><strong>Checkout where the limit appears.</strong> The upgrade prompt sits at the point someone hits the wall, not only on a separate route. Intent and offer happen in the same moment.</li>
+        <li><strong>Skeleton before lock.</strong> Gated screens render their real skeleton and then resolve into a locked state, instead of redirecting on load. A redirect feels like an error. This feels like a door.</li>
+        <li><strong>Visible subscription management.</strong> Plan, renewal date and self-serve cancellation, none of it buried behind a support email.</li>
+        <li><strong>Attribution that survives the funnel.</strong> I built click-ID capture and signup attribution into the middleware after finding a real sale the ads platform never recorded.</li>
+      </ul>
+      <p>That last point taught me something about my own work: a design decision in a funnel is only as good as the measurement that proves it.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Under the interface</p>
+    <div class="read-body">
+      <h2>What the screens sit on</h2>
+      <p>A scheduled engine pulls fixtures, team and player statistics, lineups and market odds across <strong>100+ leagues</strong>, inside a hard ceiling of <strong>75,000 API requests a day</strong> that I enforce in code. Every job carries a per-run cap, because going over quota would take the product down for the rest of the day. Live matches get their own one-minute refresh so real-time data never competes with historical backfill.</p>
+      <p>The rule I would defend hardest is a product one. Not publishing beats publishing something weak. Every market has to clear validation against historical results before it can appear, and several stay switched off in production because they never cleared it. One of those I wanted to ship. When the entire value of a product is a credible record, showing less is worth more.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">In production</p>
+    <div class="read-body">
+      <h2>The payment webhook that never made a sound</h2>
+      <p>This is the part I would point a hiring manager to first. Subscribers paid and got nothing, and the obvious explanation turned out to be wrong.</p>
+      <div class="notes">
+        <div>
+          <h3>Symptom</h3>
+          <p>Two subscribers paid and received no access. It looked like a repeat of an auth token bug I had already fixed once.</p>
+        </div>
+        <div>
+          <h3>Investigation</h3>
+          <p>I checked the audit table that logs every inbound webhook before processing. It held zero rows, and had since the integration went live. That ruled out the handler. My code was never running.</p>
+        </div>
+        <div>
+          <h3>Root cause</h3>
+          <p>The webhook URL registered with the payment provider pointed at the bare apex domain, which the host redirects to <code>www</code> at the routing layer. The provider does not follow redirects on webhook calls. Every request died before reaching the application, with no error and no log line, because nothing ever arrived.</p>
+        </div>
+        <div>
+          <h3>Fix and proof</h3>
+          <p>I corrected the URL to the canonical host and verified with a real webhook POST end to end: 200 back, event applied, row written.</p>
+        </div>
+        <div>
+          <h3>The part that mattered</h3>
+          <p>A wrong URL breaks quietly again when DNS changes or someone edits a dashboard. Instead of fixing one URL I shipped a watchdog that watches for <strong>silence rather than errors</strong>. If no webhook arrives for 24 hours it alerts me. That covers this failure and every future one with the same symptom, without needing me to guess the cause.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Takeaway</p>
+    <div class="read-body">
+      <h2>What this project shows</h2>
+      <p><strong>I close the loop.</strong> The paywall connects to a webhook that grants access, an account page that reflects it, and an alert that fires when it breaks. Design decisions stay cheap until something has to work at 2am for someone who paid.</p>
+      <p><strong>I debug at the right layer.</strong> Reading the handler code again would never have found that incident. It took a hypothesis, an audit trail, and accepting that the problem sat outside the application.</p>
+      <p><strong>I build for the next failure.</strong> Watching for silence instead of errors is a small idea that covers a class of problems I have not met yet.</p>
+      <p>I work in close pair programming with Claude Code, including the engine, the incident fix and the watchdog. I say that plainly because it explains how one person covers this much ground, and because deciding what to build and what to throw away is the part that stays mine.</p>
+      <a class="back" href="/">&larr; All work</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Yuri Roberto, Goiânia, Brazil</span>
+    <span><a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a></span>
+  </footer>
+
 </div>
 
-<div class="shot-wide" style="max-width:920px;margin:-1px auto 0;border-radius:0;border-left:0;border-right:0">
-  <img src="/projects/goscout/assets/hero.jpg" alt="GoScout landing page and product interface">
-</div>
-
-<div class="wrap-read">
-
-  <section class="prose">
-    <h2>The problem</h2>
-    <p>Sports-betting analysis in Brazil runs on tipsters — people who read stats by hand and post picks with no track record anyone can audit. The category is loud, hype-driven, and full of screenshots of wins with the losses cropped out.</p>
-    <p>GoScout replaces that with a statistical engine that publishes automatically and keeps a public, unedited record of every result. But that creates the actual design problem: <strong>the product only works if someone trusts a number they didn't calculate themselves.</strong> The interface has to earn credibility in a category where nobody has any — and it has to gate paid content without ever feeling like a bait-and-switch.</p>
-    <p>And it's used one-handed, on a phone, mid-match.</p>
-  </section>
-
-  <section>
-    <p class="section-label">Scope</p>
-    <h2>What I owned</h2>
-    <p class="lede" style="margin-bottom:26px">There was no team. Every layer below was a decision I made and a thing I built.</p>
-    <div class="ownership">
-      <div class="ownership-head">
-        <h3>Solo, end to end</h3>
-        <span class="count">10 / 10 layers</span>
-      </div>
-      <div class="layer-grid">
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Product definition</div><div class="what">Scope, market, what not to build</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Information architecture</div><div class="what">Routes, navigation, hierarchy</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Interface design</div><div class="what">Every screen, mobile-first</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Design system</div><div class="what">Tokens, type, dark-first palette</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Frontend</div><div class="what">Next.js, TypeScript, Tailwind</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Backend &amp; data model</div><div class="what">PostgreSQL, Prisma, REST APIs</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Data pipeline</div><div class="what">100+ leagues, live ingestion</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Payments</div><div class="what">Checkout, webhooks, subscription states</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Infrastructure &amp; ops</div><div class="what">Deploys, cron, monitoring, alerting</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Growth instrumentation</div><div class="what">Attribution, conversion tracking</div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <p class="section-label">Design decisions</p>
-    <h2>Four calls that shaped the product</h2>
-
-    <div class="decision">
-      <h3>Blur the number, never the noun</h3>
-      <p>The first paywall I built blurred entire cards. It tested badly with the people I showed it to — a wall of grey rectangles reads as <em>"this product is hiding something,"</em> and people left before understanding what they'd even be paying for.</p>
-      <p>So I rewrote the rule: <strong>free users see the full shape of every screen</strong> — team names, matches, layout, labels — and only the specific paid value is obscured. You can always see what you'd get. You just can't read the number yet.</p>
-      <span class="tradeoff"><b>Trade-off</b> This gives away more of the product than a hard wall does, and some users will be satisfied with the free layer alone. I took that hit deliberately: an understood paywall converts better than an opaque one, and it doesn't poison trust in a category where trust is the entire product.</span>
-    </div>
-
-    <div class="decision">
-      <h3>A floating nav pill — and the bug that only existed on real hardware</h3>
-      <p>I designed the primary mobile navigation as a floating pill anchored above the safe area rather than a full-width bar, so content runs full-bleed underneath it and the chrome stays light on a small screen.</p>
-      <p>It looked perfect in the browser's device emulator and broke on an actual iPhone. Two separate causes: Safari silently fails on fixed positioning when the offset combines <code>calc()</code> with <code>env(safe-area-inset)</code>, and a Tailwind arbitrary-value class with two tokens (<code>justify-[safe_center]</code>) never compiles to CSS at all — it just produces nothing, with no error.</p>
-      <span class="tradeoff"><b>What changed after</b> Every UI change now ships with a check on physical hardware before I call it done. Emulators verify layout; they don't verify the platform.</span>
-    </div>
-
-    <div class="decision">
-      <h3>Dark-first, because of where the product is actually used</h3>
-      <p>People open GoScout at night, on a couch, with a match on. So dark isn't the alternate theme here — it's the origin. I designed the palette dark-first and derived the light theme from it, rather than the usual inversion.</p>
-      <p>The system came out of studying how FotMob and Betano handle dense sports data: near-black surfaces, one brand green carrying identity, and semantic colour reserved for meaning (a distinct accent marks the high-variance bet profile, so it can never be confused with the safe one at a glance).</p>
-      <span class="tradeoff"><b>Trade-off</b> I wanted a display typeface with real personality, and the reference used a proprietary one that isn't licensed for redistribution. I used a freely licensed family instead and pushed the character through weight and scale. Shipping legally beat matching the reference exactly.</span>
-    </div>
-
-    <div class="decision">
-      <h3>Different density for scanning versus deciding</h3>
-      <p>Two screens in the same product have opposite jobs. The compact grid exists to let someone scan dozens of matches in seconds — tight rows, colour-coded probability, sortable columns. The detail view exists for the single moment a user decides whether to trust one number enough to act on it, so it slows down and gives that number room.</p>
-      <p>Same design system, deliberately different density. The rule I kept coming back to was Krug's — don't make me think — applied per surface rather than globally.</p>
-    </div>
-
-    <div class="shots">
-      <figure>
-        <img src="/projects/goscout/assets/landing-mobile.jpg" alt="GoScout public landing page on mobile">
-        <figcaption>Public landing — the product's shape is visible before signup.</figcaption>
-      </figure>
-      <figure>
-        <img src="/projects/goscout/assets/analise-compacta-mobile.jpg" alt="GoScout compact probability grid on mobile with floating bottom navigation">
-        <figcaption>The compact grid, with the floating nav pill in view.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="prose">
-    <h2>Payments: the flow most designers never touch</h2>
-    <p>GoScout is a real subscription business, so I designed and implemented the entire commercial surface — not just a pricing page.</p>
-    <ul>
-      <li><strong>Contextual checkout entry.</strong> The upgrade prompt appears where a user actually hits the limit, not only on a separate pricing route. The moment of intent and the moment of offer are the same moment.</li>
-      <li><strong>Skeleton-first gating.</strong> Locked screens render their real skeleton immediately and then resolve into a lock state, instead of hard-redirecting on load. A redirect feels like an error; this feels like a door.</li>
-      <li><strong>Account and subscription management.</strong> Plan status, renewal date, and self-serve cancellation — visible, not buried behind a support email.</li>
-      <li><strong>Attribution that survives checkout.</strong> I built the click-ID capture and signup attribution through the middleware so paid-acquisition data isn't lost between the ad and the subscription.</li>
-    </ul>
-    <p>That last one came from a real finding: a genuine sale was invisible in the ads platform because attribution broke on the way through. Design decisions in a funnel are only as good as the measurement proving them.</p>
-  </section>
-
-  <section class="prose">
-    <h2>What's behind the interface</h2>
-    <p>The screens sit on a system I also built. A scheduled engine ingests fixtures, team and player statistics, lineups and market odds across <strong>100+ leagues</strong>, inside a hard budget of <strong>75,000 API requests per day</strong> enforced in code — jobs carry per-run caps, because going over quota would take the whole product down for the rest of the day. Live matches get a dedicated one-minute refresh so real-time data never competes with historical backfill.</p>
-    <p>The part I'd defend hardest is a product principle, not a technical one: <strong>not publishing beats publishing something weak.</strong> Every market has to clear validation against historical results before it's allowed to appear. Several stay switched off in production today because they never cleared it — including one I wanted to ship. In a product whose entire value is a credible track record, the discipline to show less is the feature.</p>
-  </section>
-
-  <section>
-    <p class="section-label">Production reality</p>
-    <h2>The payment webhook that never made a sound</h2>
-    <p class="lede" style="margin-bottom:34px">This is the part I'd point a hiring manager to first. Paying subscribers weren't getting access, and the obvious explanation was wrong.</p>
-    <div class="steps">
-      <div class="step">
-        <h3>Symptom</h3>
-        <p>Two subscribers paid and got nothing. It looked like a repeat of an auth-token bug I'd already found and fixed once. It wasn't.</p>
-      </div>
-      <div class="step">
-        <h3>Investigation</h3>
-        <p>I checked the audit table that logs every inbound webhook before processing. It had zero rows — not since the integration existed. That ruled out the handler entirely: the code was never being reached.</p>
-      </div>
-      <div class="step">
-        <h3>Root cause</h3>
-        <p>The webhook URL registered with the payment provider pointed at the bare apex domain, which the host 308-redirects to <code>www</code> at the routing layer. The provider doesn't follow redirects on webhook calls. Every request died before touching application code — no error, no failed auth, no log line, because nothing ever arrived.</p>
-      </div>
-      <div class="step">
-        <h3>Fix and verification</h3>
-        <p>Corrected the URL to the canonical host, then verified with a real webhook POST end to end: 200 response, event applied, row written.</p>
-      </div>
-      <div class="step">
-        <h3>The systemic fix</h3>
-        <p>A wrong URL breaks silently again — DNS changes, someone edits a dashboard. So instead of just fixing the URL, I shipped a watchdog that monitors for <strong>silence rather than errors</strong>: if no webhook lands for 24 hours, it alerts me. That covers this failure and every future one with the same symptom, without needing to predict the cause.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="prose">
-    <h2>What this project actually demonstrates</h2>
-    <p><strong>That I close the loop.</strong> The paywall isn't a mockup of a paywall — it's connected to a webhook that grants access, an account page that reflects it, and an alert that fires when it breaks. Design decisions are cheap until something has to work at 2am for someone who paid.</p>
-    <p><strong>That I debug at the right layer.</strong> Re-reading the handler code twice would never have found that incident. It took forming a hypothesis, checking evidence, and being willing to conclude the problem was outside the app entirely.</p>
-    <p><strong>That I build for the next failure.</strong> Monitoring silence instead of errors is a small idea that covers a whole class of problems I haven't seen yet.</p>
-    <p><strong>On how it was built:</strong> I worked in close pair-programming with Claude Code throughout — the engine, the incident fix, and the watchdog included. I'm explicit about that because it's a real part of how I ship this much scope alone, and because knowing what to build, what to reject, and what a wrong answer looks like is the part that doesn't automate.</p>
-    <a class="back" href="/projects">&larr; All work</a>
-  </section>
-
-</div>
-<footer class="site-footer">Yuri Roberto — Product Designer · Goiânia, Brazil</footer>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

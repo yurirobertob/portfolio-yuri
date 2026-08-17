@@ -3,132 +3,121 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Yuri Roberto</title>
-<meta name="description" content="Yuri Roberto — product designer in Goiânia, Brazil. Art direction background, three products shipped to production solo.">
+<meta name="description" content="Yuri Roberto, product designer in Goiânia, Brazil. Art direction background, three products shipped to production alone.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About — Yuri Roberto">
-<meta property="og:description" content="Product designer in Goiânia, Brazil. Art direction background, three products shipped to production solo.">
+<meta property="og:description" content="Product designer in Goiânia, Brazil. Art direction background, three products shipped to production alone.">
 <meta property="og:url" content="https://yuriroberto.com/about">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About — Yuri Roberto">
-<meta name="twitter:description" content="Product designer in Goiânia, Brazil. Three products shipped to production solo.">
+<meta name="twitter:description" content="Product designer in Goiânia, Brazil.">
 <link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
-<style>
-  .about-split {
-    display: grid;
-    grid-template-columns: 0.75fr 1.25fr;
-    gap: 48px;
-    align-items: center;
-  }
-  .about-photo {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border);
-    aspect-ratio: 3 / 4;
-  }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 780px) {
-    .about-split { grid-template-columns: 1fr; gap: 30px; }
-    .about-photo { max-width: 230px; }
-  }
-</style>
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="/">Yuri Roberto</a>
-  <nav class="site-nav">
-    <a href="/">Home</a>
-    <a class="active" href="/about">About</a>
-    <a href="/projects">Work</a>
-    <a href="/#contact">Contact</a>
+
+<header class="masthead">
+  <a class="mark" href="/"><span class="dot"></span>Yuri Roberto</a>
+  <nav class="menu">
+    <a href="/">Work</a>
+    <a href="/about" aria-current="page">About</a>
+    <a href="mailto:design@yuriroberto.com">Contact</a>
   </nav>
 </header>
 
-<div class="page-hero">
-  <div class="wrap about-split">
-    <div class="about-photo">
-      <img src="https://framerusercontent.com/images/gpYCx6o6FQgATDY1nXkDfttSmc.jpeg?width=700" alt="Yuri Roberto">
+<div class="shell">
+
+  <section class="intro">
+    <div class="intro-photo">
+      <img src="https://framerusercontent.com/images/gpYCx6o6FQgATDY1nXkDfttSmc.jpeg?width=280" alt="Yuri Roberto">
     </div>
     <div>
-      <p class="eyebrow">About</p>
-      <h1>I design products and then I ship them.</h1>
-      <p class="lede">Product designer in Goiânia, Brazil, working with teams across the UK, US and Europe. Five-plus years in art direction, now building software end to end.</p>
+      <p class="intro-text">I'm Yuri Roberto, a product designer based in Goiânia, Brazil, working with teams in the UK, the US and Europe.</p>
+      <p class="status"><i></i> Available for work</p>
+      <div class="links">
+        <a href="https://behance.net/yuriroberto" target="_blank" rel="noopener">Behance</a>
+        <a href="https://instagram.com/yuriroberto" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="display" data-reveal>
+    <div>
+      <h1>About</h1>
+      <p class="sub">Art direction, then software</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Background</p>
+    <div class="read-body">
+      <h2>How I got here</h2>
+      <p>I spent most of my career as an art director and graphic designer, on brand and campaign work for drinks brands and infrastructure clients. That is where the craft came from: type, composition, and knowing when something is finished.</p>
+      <p>In 2022 I moved to London for a year and it changed what I noticed. I stopped seeing visual briefs and started seeing broken workflows. The clearest one was cleaning team managers running entire operations out of WhatsApp threads, with no tool built for teams that size. That observation became Shiftsly.</p>
+      <p>What followed was not a folder of concepts. Three products went live, with authentication, payment providers, databases, scheduled jobs, and eventually users who noticed when something broke.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">How I work</p>
+    <div class="read-body">
+      <h2>Design and build sit in the same head</h2>
+      <p>Most design portfolios end at the handoff. Mine does not, because on every project here there was nobody to hand off to. I made the interface decisions and the schema decisions, and those two constrain each other constantly.</p>
+      <p>That has a specific consequence, and it is the most useful thing about working with me. <strong>I do not design things that cannot be built, and I do not discover the cost of a decision after someone else has committed to it.</strong> When I propose a flow I already know roughly what it costs to implement, where the state has to live, and what happens when the network call fails.</p>
+      <p>It also means I have been on the wrong end of my own decisions in production, which teaches faster than any critique.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Capabilities</p>
+    <div class="read-body">
+      <h2>What I do</h2>
+      <div class="scope">
+        <div>Product and UX<span>Discovery, IA, user flows, usability testing</span></div>
+        <div>Interface design<span>Design systems, tokens, type, themes, motion</span></div>
+        <div>Frontend<span>Next.js, React, TypeScript, Tailwind</span></div>
+        <div>Backend and data<span>PostgreSQL, Prisma, REST, scheduled jobs</span></div>
+        <div>Payments<span>Stripe and Hubla, checkout to cancellation</span></div>
+        <div>Production<span>Deploys, cron, monitoring, incident response</span></div>
+        <div>Growth tracking<span>Attribution, dashboards, automated reporting</span></div>
+        <div>Tooling<span>Figma, Adobe, and pair programming with Claude Code</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Practical</p>
+    <div class="read-body">
+      <h2>Details worth knowing</h2>
+      <ul>
+        <li>Based in Goiânia, Brazil. I overlap with UK and European hours and have worked remotely for years.</li>
+        <li>Portuguese native, professional English. Shiftsly is a UK product I designed, built and wrote in English.</li>
+        <li>Open to contract, freelance and full-time product design work.</li>
+      </ul>
+      <p style="margin-top:26px"><a class="back" href="/">&larr; See the work</a></p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Yuri Roberto, Goiânia, Brazil</span>
+    <span><a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a></span>
+  </footer>
+
 </div>
 
-<div class="wrap-read">
-
-  <section class="prose">
-    <h2>How I got here</h2>
-    <p>I spent most of my career as an art director and graphic designer, working on brand and campaign work for consumer and infrastructure clients. That's where the craft came from — type, composition, knowing when something is finished.</p>
-    <p>In 2022 I moved to London for a year, and it changed what I paid attention to. I stopped seeing visual briefs and started seeing broken workflows. The clearest one: cleaning-team managers running entire operations out of WhatsApp threads, with no tool built for teams that size. That observation eventually became Shiftsly.</p>
-    <p>What followed wasn't a portfolio of concepts. It was three products that actually went live — with authentication, payment providers, databases, scheduled jobs and, eventually, users who noticed when something broke.</p>
-  </section>
-
-  <section class="prose">
-    <h2>What that means in practice</h2>
-    <p>Most design portfolios end at the handoff. Mine doesn't, because in every project here there was nobody to hand off to. I made the interface decisions <em>and</em> the schema decisions, and those two things turn out to constrain each other constantly.</p>
-    <p>That has a specific consequence I'd argue is the most useful thing about working with me: <strong>I don't design things that can't be built, and I don't discover the cost of a decision after someone else has committed to it.</strong> When I propose a flow, I already know roughly what it costs to implement, where the state has to live, and what happens when the network call fails.</p>
-    <p>It also means I've been on the wrong end of my own decisions in production — which is a faster teacher than any critique.</p>
-  </section>
-
-  <section>
-    <p class="section-label">Capabilities</p>
-    <h2>What I actually do</h2>
-    <div class="cap-grid">
-      <div class="cap">
-        <h3>Product &amp; UX</h3>
-        <p>Problem discovery, information architecture, user flows, usability testing with real users, and knowing which problem is worth solving first.</p>
-      </div>
-      <div class="cap">
-        <h3>Interface &amp; visual design</h3>
-        <p>Design systems, tokens, type scales, dark and light themes, motion, responsive behaviour. Figma, plus five-plus years of Adobe tooling from the art direction years.</p>
-      </div>
-      <div class="cap">
-        <h3>Frontend engineering</h3>
-        <p>Next.js, React, TypeScript, Tailwind. I implement my own designs, so intent doesn't get lost in translation.</p>
-      </div>
-      <div class="cap">
-        <h3>Backend &amp; data</h3>
-        <p>PostgreSQL, Prisma, REST integrations, scheduled jobs, background workers. Schema design as a product decision.</p>
-      </div>
-      <div class="cap">
-        <h3>Payments &amp; subscriptions</h3>
-        <p>Live Stripe and Hubla integrations — pricing models, checkout, webhooks, subscription lifecycle, cancellation and account states.</p>
-      </div>
-      <div class="cap">
-        <h3>Production &amp; operations</h3>
-        <p>Deployment, cron scheduling, monitoring, alerting and incident response on systems with paying users.</p>
-      </div>
-      <div class="cap">
-        <h3>Growth instrumentation</h3>
-        <p>Conversion tracking, attribution through checkout, analytics dashboards, and automated reporting loops.</p>
-      </div>
-      <div class="cap">
-        <h3>Working with AI</h3>
-        <p>I build in close pair-programming with Claude Code. It's how one person covers this much scope — and knowing what to reject is most of the skill.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="prose">
-    <h2>Practical details</h2>
-    <ul>
-      <li>Based in Goiânia, Brazil — comfortable overlapping with UK and European hours, and used to working remotely.</li>
-      <li>Portuguese native, professional English. Shiftsly is a UK-market product I built and wrote in English.</li>
-      <li>Open to contract, freelance and full-time product design work.</li>
-    </ul>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/projects">See the work &rarr;</a>
-      <a class="btn btn-ghost" href="/#contact">Get in touch</a>
-    </div>
-  </section>
-
-</div>
-<footer class="site-footer">Yuri Roberto — Product Designer · Goiânia, Brazil</footer>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

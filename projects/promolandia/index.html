@@ -3,143 +3,157 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Promolândia — Yuri Roberto</title>
-<meta name="description" content="A multi-platform deal distribution engine built solo — marketplace integrations, per-platform scoring, automated publishing and click analytics.">
+<meta name="description" content="A deal distribution engine built alone: four marketplace integrations, per-platform scoring, automated publishing to WhatsApp and Telegram, and click analytics.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Promolândia — Yuri Roberto">
-<meta property="og:description" content="A multi-platform deal distribution engine built solo — marketplace integrations, per-platform scoring, automated publishing and click analytics.">
+<meta property="og:description" content="A deal distribution engine built alone, running unattended across four marketplaces.">
 <meta property="og:url" content="https://yuriroberto.com/projects/promolandia">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Promolândia — Yuri Roberto">
-<meta name="twitter:description" content="A multi-platform deal distribution engine built solo.">
+<meta name="twitter:description" content="A deal distribution engine built alone, running unattended.">
 <link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="/">Yuri Roberto</a>
-  <nav class="site-nav">
-    <a href="/">Home</a>
+
+<header class="masthead">
+  <a class="mark" href="/"><span class="dot"></span>Yuri Roberto</a>
+  <nav class="menu">
+    <a href="/">Work</a>
     <a href="/about">About</a>
-    <a class="active" href="/projects">Work</a>
-    <a href="/#contact">Contact</a>
+    <a href="mailto:design@yuriroberto.com">Contact</a>
   </nav>
 </header>
 
-<div class="page-hero">
-  <div class="wrap-read">
-    <p class="eyebrow">Growth Engineering · Automation</p>
-    <h1>Promolândia: a distribution engine that runs without me.</h1>
-    <p class="lede">Four marketplaces, scraped and scored automatically, published to WhatsApp and Telegram with affiliate monetisation and click analytics built into the link layer.</p>
-    <dl class="meta-strip">
-      <div>
-        <dt>My role</dt>
-        <dd>Solo — architecture, integrations, scoring models, distribution, analytics, infrastructure.</dd>
+<div class="shell">
+
+  <section class="page-head">
+    <p class="label">Growth engineering</p>
+    <h1 class="page-h1">Promolândia</h1>
+    <div class="read">
+      <div class="read-label"></div>
+      <div class="read-body">
+        <p class="page-lede">Four marketplaces scraped and scored automatically, published to WhatsApp and Telegram with affiliate tracking built into the link layer.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Role</dt><dd>Alone: architecture, integrations, scoring, distribution, analytics, infrastructure</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Node.js, TypeScript, PostgreSQL, Prisma, Next.js, cron</dd></div>
+          <div class="fact"><dt>Status</dt><dd>Live since May 2026, runs unattended</dd></div>
+        </dl>
       </div>
-      <div>
-        <dt>Status</dt>
-        <dd>Live in production since May 2026, running unattended.</dd>
-      </div>
-      <div>
-        <dt>Stack</dt>
-        <dd>Node.js · TypeScript · PostgreSQL · Prisma · Next.js · cron orchestration</dd>
-      </div>
-    </dl>
+    </div>
+  </section>
+
+  <div class="media-full" data-reveal>
+    <img src="/projects/promolandia/assets/hero.jpg" alt="Promolândia deals published to WhatsApp and Telegram">
   </div>
-</div>
 
-<div class="shot-wide" style="max-width:920px;margin:-1px auto 0;border-radius:0;border-left:0;border-right:0">
-  <img src="/projects/promolandia/assets/hero.jpg" alt="Promolândia deals published to WhatsApp and Telegram">
-</div>
+  <hr class="rule">
 
-<div class="wrap-read">
-
-  <section class="prose">
-    <h2>A note on what this is</h2>
-    <p>This isn't an interface project, and I'm not presenting it as one. Promolândia is a systems and growth-engineering project — it earns its place here because it's the clearest evidence of the engineering half of how I work, and because the feedback loop it runs is the same one that informs my design decisions elsewhere.</p>
+  <section class="block read" data-reveal>
+    <p class="label read-label">A note first</p>
+    <div class="read-body">
+      <h2>This one is engineering</h2>
+      <p>Promolândia has no interface worth showing, and I am not presenting it as design work. It sits here because it is the clearest evidence of the engineering half of how I work, and because the feedback loop it runs is the same one I use to make design decisions elsewhere.</p>
+    </div>
   </section>
 
-  <section class="prose">
-    <h2>The problem</h2>
-    <p>Brazilian shoppers rely on "deal-finder" groups on WhatsApp and Telegram to catch discounts before stock runs out. Almost all of them are one person copy-pasting links all day. That doesn't scale, doesn't run overnight, and can't prioritise by category or timing.</p>
-    <p>I replaced the manual layer entirely: a backend service that finds genuine discounts across four marketplaces, scores them, deduplicates them, and publishes them automatically — with affiliate monetisation and click tracking built in from the start rather than bolted on.</p>
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">The problem</p>
+    <div class="read-body">
+      <h2>A person copy-pasting links all day</h2>
+      <p>Brazilian shoppers follow deal groups on WhatsApp and Telegram to catch discounts before stock runs out. Almost every one of those groups is a person pasting links by hand. That stops at their bedtime, cannot prioritise anything, and never scales.</p>
+      <p>I replaced the manual layer with a service that finds genuine discounts across four marketplaces, scores them, removes duplicates, and publishes them. Affiliate tracking went in from the first version rather than later.</p>
+    </div>
   </section>
 
-  <section>
-    <p class="section-label">Scope</p>
-    <h2>What I owned</h2>
-    <div class="ownership">
-      <div class="ownership-head">
-        <h3>Solo, end to end</h3>
-        <span class="count">8 / 8 layers</span>
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Scope</p>
+    <div class="read-body">
+      <h2>What I owned</h2>
+      <div class="scope">
+        <div>System architecture<span>Services, scheduling, orchestration</span></div>
+        <div>Marketplace integrations<span>Four, no two alike</span></div>
+        <div>Scoring models<span>Weighted per platform</span></div>
+        <div>Deduplication<span>Title normalisation, rolling window</span></div>
+        <div>Distribution<span>Telegram and WhatsApp delivery</span></div>
+        <div>Monetisation<span>Affiliate links, self-hosted shortener</span></div>
+        <div>Analytics<span>Click tracking and dashboard</span></div>
+        <div>Infrastructure<span>Self-hosted VPS, near-zero cost</span></div>
       </div>
-      <div class="layer-grid">
-        <div class="layer"><span class="tick">✓</span><div><div class="name">System architecture</div><div class="what">Services, scheduling, orchestration</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Marketplace integrations</div><div class="what">Four, no two alike</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Scoring models</div><div class="what">Weighted per platform</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Deduplication</div><div class="what">Title normalisation, rolling window</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Distribution</div><div class="what">Telegram and WhatsApp delivery</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Monetisation</div><div class="what">Affiliate links, self-hosted shortener</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Analytics</div><div class="what">Click tracking and dashboard</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Infrastructure</div><div class="what">Self-hosted VPS, near-zero cost</div></div></div>
-      </div>
     </div>
   </section>
 
-  <section>
-    <p class="section-label">Engineering decisions</p>
-    <h2>Four marketplaces, four different fights</h2>
+  <hr class="rule">
 
-    <div class="decision">
-      <h3>One integration pattern per platform, because none of them behave the same</h3>
-      <p><strong>Mercado Livre</strong> has no official deals API, so this runs as server-side scraping behind a custom anti-bot layer — rotating browser headers, cookie persistence across paginated requests, randomised jitter between calls — to stay under an in-house detection system at zero API cost.</p>
-      <p><strong>Amazon</strong> blocks at the infrastructure level: a WAF plus a JavaScript challenge on any datacentre IP. No amount of header tuning gets past that, so I stopped trying and routed through a search API instead — which also halved the request count versus the naive approach while tripling the yield of results carrying valid original-price data.</p>
-      <p><strong>Shopee and AliExpress</strong> run on their official affiliate APIs once I was approved — GraphQL and REST respectively, including bulk LLM-based title translation, since the AliExpress feed returns English titles for a Portuguese-speaking audience.</p>
-      <span class="tradeoff"><b>The judgement call</b> Knowing when to fight a defence and when to stop. Scraping was right for Mercado Livre and wrong for Amazon, and the difference is whether the blocker is heuristic or structural.</span>
-    </div>
+  <section class="block read" data-reveal>
+    <p class="label read-label">Engineering decisions</p>
+    <div class="read-body">
+      <h2>Four marketplaces, four different fights</h2>
 
-    <div class="decision">
-      <h3>"A good deal" means something different on every platform</h3>
-      <p>A single scoring model across four marketplaces would have been simpler and would have performed badly. Each platform's audience buys differently, so each gets its own weighted model: Mercado Livre is impulse territory and weights absolute price heavily; Amazon skews electronics and shifts weight to rating, review count and category; Shopee factors historical sales volume in.</p>
-      <p>All of them share one hard filter that runs before scoring: a minimum genuine discount. No amount of favourable weighting can rescue an item that isn't actually a deal.</p>
-    </div>
+      <h3>One integration pattern per platform</h3>
+      <p><strong>Mercado Livre</strong> publishes no deals API, so this runs as server-side scraping behind a custom anti-bot layer: rotating browser headers, cookies held across paginated requests, and randomised gaps between calls, at zero API cost.</p>
+      <p><strong>Amazon</strong> blocks at the infrastructure level with a firewall and a JavaScript challenge on any datacentre address. No amount of header tuning gets through that, so I stopped trying and routed through a search API. It halved the request count against my first approach and tripled the yield of results carrying a valid original price.</p>
+      <p><strong>Shopee and AliExpress</strong> run on their official affiliate APIs once they approved me, GraphQL and REST respectively, with bulk translation of AliExpress titles that arrive in English for a Portuguese-speaking audience.</p>
+      <p><strong>The judgement:</strong> knowing when to fight a defence and when to stop. Scraping suited Mercado Livre and failed against Amazon, and the difference comes down to whether the blocker is a heuristic or a wall.</p>
 
-    <div class="decision">
+      <h3>A good deal means something different on every platform</h3>
+      <p>One scoring model across four marketplaces would have been simpler and would have performed worse. Each audience buys differently, so each gets its own weighting. Mercado Livre leans on absolute price. Amazon skews to electronics and shifts weight onto rating, review count and category. Shopee brings in historical sales volume.</p>
+      <p>All of them share a hard filter that runs before scoring: a minimum genuine discount. No weighting rescues an item that is not actually a deal.</p>
+
       <h3>Deduplication as a quality gate</h3>
-      <p>The fastest way to lose an audience is to post the same product three times because it comes in three sizes. A title-normalisation step strips units, sizes, numbers and stopwords, then blocks near-duplicates across a seven-day rolling window — scoped per platform, so overlapping inventory between marketplaces doesn't produce false positives.</p>
-    </div>
+      <p>Posting the same product three times because it comes in three sizes loses an audience fast. A normalisation step strips units, sizes, numbers and stopwords, then blocks near-duplicates across a seven-day window, scoped per platform so overlapping inventory between marketplaces does not trigger false positives.</p>
 
-    <div class="decision">
-      <h3>Measurement built into the link, not added later</h3>
-      <p>Every outbound link is rewritten through a self-hosted shortener that logs each click with a timestamp. That feeds a dashboard showing volume by hour, weekday, platform and category — which closes the loop from <em>what we post</em> to <em>what people actually click</em>, and then feeds back into what gets prioritised.</p>
-      <p>This is the part that makes it growth engineering rather than automation. A script that posts things is a script. A pipeline that measures its own output and adjusts is a system.</p>
+      <h3>Measurement inside the link</h3>
+      <p>Every outbound link goes through a self-hosted shortener that logs each click with a timestamp. That feeds a dashboard showing volume by hour, weekday, platform and category, which closes the loop between what gets posted and what people click, and then decides what gets prioritised.</p>
+      <p>This is what separates it from automation. A script that posts things is a script. A pipeline that measures its own output and adjusts is a system.</p>
     </div>
   </section>
 
-  <section>
-    <p class="section-label">Outcomes</p>
-    <h2>First 46 days in production</h2>
-    <div class="stat-row">
-      <div class="stat"><div class="n">2,686</div><div class="l">Deals published automatically</div></div>
-      <div class="stat"><div class="n">3,847</div><div class="l">Affiliate links generated and tracked</div></div>
-      <div class="stat"><div class="n">4</div><div class="l">Marketplaces integrated</div></div>
-      <div class="stat"><div class="n">0</div><div class="l">Manual interventions required</div></div>
-      <div class="stat"><div class="n">~R$0</div><div class="l">Infrastructure cost</div></div>
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Outcomes</p>
+    <div class="read-body">
+      <h2>First 46 days in production</h2>
+      <div class="scope">
+        <div>2,686<span>Deals published automatically</span></div>
+        <div>3,847<span>Affiliate links generated and tracked</span></div>
+        <div>4<span>Marketplaces integrated</span></div>
+        <div>0<span>Manual interventions required</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="prose">
-    <h2>What this project actually demonstrates</h2>
-    <p><strong>That I ship against hostile constraints.</strong> Two of these four integrations actively did not want to be integrated with. Getting them working meant understanding what kind of defence I was up against and choosing a different strategy for each.</p>
-    <p><strong>That I think in feedback loops.</strong> The analytics layer wasn't a phase-two nice-to-have — it shipped with the first version, because a distribution system with no measurement is guesswork with extra steps.</p>
-    <p><strong>That things I build keep running.</strong> This has published thousands of items without manual intervention. Shipping isn't the finish line; unattended operation is.</p>
-    <p><strong>On how it was built:</strong> every layer, including the marketplace integrations and scoring logic, was built in close pair-programming with Claude Code.</p>
-    <a class="back" href="/projects">&larr; All work</a>
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Takeaway</p>
+    <div class="read-body">
+      <h2>What this project shows</h2>
+      <p><strong>I ship against hostile constraints.</strong> Two of these four integrations actively did not want to be integrated with. Getting them working meant identifying what kind of defence I faced and picking a different strategy for each.</p>
+      <p><strong>I think in feedback loops.</strong> The analytics layer shipped with the first version, because a distribution system without measurement is guesswork with extra steps.</p>
+      <p><strong>What I build keeps running.</strong> This has published thousands of items with nobody touching it. Shipping is not the finish line, unattended operation is.</p>
+      <p>Every layer, including the marketplace integrations and the scoring logic, was built in close pair programming with Claude Code.</p>
+      <a class="back" href="/">&larr; All work</a>
+    </div>
   </section>
+
+  <footer class="foot">
+    <span>Yuri Roberto, Goiânia, Brazil</span>
+    <span><a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a></span>
+  </footer>
 
 </div>
-<footer class="site-footer">Yuri Roberto — Product Designer · Goiânia, Brazil</footer>
+
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

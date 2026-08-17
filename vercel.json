@@ -2,7 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/case-studies", "destination": "/projects", "permanent": true },
+    { "source": "/projects", "destination": "/", "permanent": true },
+    { "source": "/case-studies", "destination": "/", "permanent": true },
     { "source": "/case-studies/goscout", "destination": "/projects/goscout", "permanent": true },
     { "source": "/case-studies/shiftsly", "destination": "/projects/shiftsly", "permanent": true },
     { "source": "/case-studies/promolandia", "destination": "/projects/promolandia", "permanent": true }

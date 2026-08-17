@@ -3,138 +3,148 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shiftsly — Yuri Roberto</title>
-<meta name="description" content="Founding a UK scheduling SaaS solo — market insight, product design, frontend, backend, auth and live Stripe billing.">
+<meta name="description" content="Founding a UK scheduling SaaS alone: market research, product design, frontend, backend, passwordless auth and live Stripe billing.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shiftsly — Yuri Roberto">
-<meta property="og:description" content="Founding a UK scheduling SaaS solo — market insight, product design, frontend, backend, auth and live Stripe billing.">
+<meta property="og:description" content="Founding a UK scheduling SaaS alone, from the market insight to live Stripe billing.">
 <meta property="og:url" content="https://yuriroberto.com/projects/shiftsly">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shiftsly — Yuri Roberto">
-<meta name="twitter:description" content="Founding a UK scheduling SaaS solo — from market insight to live Stripe billing.">
+<meta name="twitter:description" content="Founding a UK scheduling SaaS alone.">
 <link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="/">Yuri Roberto</a>
-  <nav class="site-nav">
-    <a href="/">Home</a>
+
+<header class="masthead">
+  <a class="mark" href="/"><span class="dot"></span>Yuri Roberto</a>
+  <nav class="menu">
+    <a href="/">Work</a>
     <a href="/about">About</a>
-    <a class="active" href="/projects">Work</a>
-    <a href="/#contact">Contact</a>
+    <a href="mailto:design@yuriroberto.com">Contact</a>
   </nav>
 </header>
 
-<div class="page-hero">
-  <div class="wrap-read">
-    <p class="eyebrow">Product Design · Full Stack · Founder</p>
-    <h1>Shiftsly: replacing a WhatsApp thread with a product.</h1>
-    <p class="lede">A scheduling SaaS for small UK cleaning teams. I found the problem living in London, then designed, built and shipped the whole thing myself.</p>
-    <dl class="meta-strip">
-      <div>
-        <dt>My role</dt>
-        <dd>Founder, designer and engineer. Research, UX, UI, frontend, backend, auth, billing, growth.</dd>
+<div class="shell">
+
+  <section class="page-head">
+    <p class="label">Product design · Full stack · Founder</p>
+    <h1 class="page-h1">Shiftsly</h1>
+    <div class="read">
+      <div class="read-label"></div>
+      <div class="read-body">
+        <p class="page-lede">A scheduling tool for small UK cleaning teams. I found the problem living in London, then designed and built the whole thing myself.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Role</dt><dd>Founder, designer and engineer: research, UX, UI, frontend, backend, auth, billing</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Next.js, TypeScript, Prisma, PostgreSQL, NextAuth, Stripe, Resend</dd></div>
+          <div class="fact"><dt>Live at</dt><dd><a href="https://shiftsly.com" target="_blank" rel="noopener">shiftsly.com</a></dd></div>
+        </dl>
       </div>
-      <div>
-        <dt>Status</dt>
-        <dd>Live in production, onboarding users since Feb 2026 — <a href="https://shiftsly.com" target="_blank" rel="noopener">shiftsly.com</a></dd>
-      </div>
-      <div>
-        <dt>Stack</dt>
-        <dd>Next.js · TypeScript · Prisma · PostgreSQL · NextAuth · Stripe · Resend</dd>
-      </div>
-    </dl>
+    </div>
+  </section>
+
+  <div class="media-full" data-reveal>
+    <img src="/projects/shiftsly/assets/landing.jpg" alt="Shiftsly landing page showing the weekly schedule" width="3200" height="1800">
   </div>
-</div>
 
-<div class="shot-wide" style="max-width:920px;margin:-1px auto 0;border-radius:0;border-left:0;border-right:0">
-  <img src="/projects/shiftsly/assets/hero.jpg" alt="Shiftsly weekly schedule interface">
-</div>
+  <hr class="rule">
 
-<div class="wrap-read">
-
-  <section class="prose">
-    <h2>Where this came from</h2>
-    <p>I lived in London between 2022 and 2023, and I kept meeting the same situation: cleaning-team managers running their entire operation out of WhatsApp threads. Who's working Tuesday, who's covering a sick day, which client site, what everyone gets paid — all of it in chat scrollback.</p>
-    <p>It doesn't scale past a handful of people, none of it is structured data, and nobody has visibility into who's covering what. The tools that exist — ZenMaid, Jobber — are either not cleaning-specific or are built and priced for operations much larger than the 5-to-20-person crews that make up most of the market.</p>
-    <p><strong>The design constraint that decided everything:</strong> the buyer checks this standing in a client's driveway between jobs, on a phone, with one hand. Not at a desk. Every subsequent decision falls out of that.</p>
+  <section class="block read" data-reveal>
+    <p class="label read-label">The problem</p>
+    <div class="read-body">
+      <h2>An operation running on chat scrollback</h2>
+      <p>I lived in London between 2022 and 2023 and kept meeting the same situation. Cleaning team managers ran everything through WhatsApp threads. Who works Tuesday, who covers a sick day, which client site, what each person gets paid, all of it buried in chat history.</p>
+      <p>It stops working past a handful of people, none of it is structured data, and nobody can see who is covering what. The tools that exist, ZenMaid and Jobber among them, either miss the cleaning specifics or serve operations far larger than the five-to-twenty person crews that make up most of the market.</p>
+      <p><strong>One constraint decided the rest:</strong> the buyer checks this standing in a client's driveway between jobs, on a phone, with one hand. Not at a desk.</p>
+    </div>
   </section>
 
-  <section>
-    <p class="section-label">Scope</p>
-    <h2>What I owned</h2>
-    <p class="lede" style="margin-bottom:26px">No co-founder, no team. Every decision below was mine to make and mine to build.</p>
-    <div class="ownership">
-      <div class="ownership-head">
-        <h3>Founder to full stack</h3>
-        <span class="count">10 / 10 layers</span>
-      </div>
-      <div class="layer-grid">
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Market research</div><div class="what">Problem discovery, competitor gap</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Product definition</div><div class="what">Scope, positioning, pricing model</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Information architecture</div><div class="what">Domain model, navigation</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Interface design</div><div class="what">Mobile-first, every screen</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Frontend</div><div class="what">Next.js, TypeScript, React</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Backend &amp; schema</div><div class="what">Prisma, PostgreSQL</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Authentication</div><div class="what">OAuth and magic-link, passwordless</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Stripe billing</div><div class="what">Three live tiers, full lifecycle</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">User research loop</div><div class="what">In-product NPS test, admin review</div></div></div>
-        <div class="layer"><span class="tick">✓</span><div><div class="name">Growth instrumentation</div><div class="what">Automated metrics digest</div></div></div>
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Scope</p>
+    <div class="read-body">
+      <h2>What I owned</h2>
+      <p>No co-founder and no team. Every decision below was mine to make and mine to build.</p>
+      <div class="scope">
+        <div>Market research<span>Problem discovery, competitor gap</span></div>
+        <div>Product definition<span>Scope, positioning, pricing model</span></div>
+        <div>Information architecture<span>Domain model, navigation</span></div>
+        <div>Interface design<span>Phone first, every screen</span></div>
+        <div>Frontend<span>Next.js, TypeScript, React</span></div>
+        <div>Backend and schema<span>Prisma, PostgreSQL</span></div>
+        <div>Authentication<span>OAuth and magic link</span></div>
+        <div>Stripe billing<span>Three live tiers</span></div>
+        <div>User research<span>In-product test with NPS</span></div>
+        <div>Growth tracking<span>Automated metrics digest</span></div>
       </div>
     </div>
   </section>
 
-  <section>
-    <p class="section-label">Design decisions</p>
-    <h2>Designing for a driveway, not a desk</h2>
+  <hr class="rule">
 
-    <div class="decision">
+  <section class="block read" data-reveal>
+    <p class="label read-label">Design decisions</p>
+    <div class="read-body">
+      <h2>Designing for a driveway</h2>
+
       <h3>The schedule is a carousel, not a grid</h3>
-      <p>The obvious solution for a weekly schedule is a dense desktop-style grid — days across, people down. It's the pattern every scheduling tool uses, and on a phone held in one hand it's unusable: you either pinch-zoom or you scroll in two directions at once.</p>
-      <p>I built the core view as a <strong>swipeable weekly carousel</strong> instead: one day at a time at full width, thumb-reachable, with the week as context above it. The information architecture underneath matches how a manager actually thinks — <em>teams → employees → weekly shifts → status</em> — rather than borrowing a generic calendar-app data model.</p>
-      <span class="tradeoff"><b>Trade-off</b> You lose the whole-week glance that a grid gives you for free. I accepted that because the frequent job is "who's covering today and is anyone missing," not "audit the full week" — and I kept a wider layout for the desk sessions where that second job actually happens.</span>
-    </div>
+      <p>Every scheduling tool draws a weekly grid with days across and people down. On a phone held in one hand it fails, because you either pinch to zoom or scroll in two directions at once.</p>
+      <p>I built the core view as a swipeable weekly carousel instead. One day at full width, reachable by thumb, with the week sitting above it as context. The structure underneath matches how a manager thinks, moving from teams to employees to weekly shifts to status, rather than borrowing a calendar app's data model.</p>
+      <p><strong>The cost:</strong> you lose the whole-week glance a grid gives you free. I accepted that because the frequent question is who is covering today and whether anyone is missing, and I kept a wider layout for the desk sessions where the other question comes up.</p>
 
-    <div class="decision">
-      <h3>No passwords, on purpose</h3>
-      <p>Sign-in runs on Google OAuth or a magic link. There is no password field anywhere in the product.</p>
-      <p>For a non-technical buyer signing up on a phone between jobs, every field is a place to abandon — and every password is a future support ticket I'd have to answer personally. Removing the field removes both. It's a small interface decision with a direct effect on activation and on how much support load a solo founder can absorb.</p>
-      <span class="tradeoff"><b>Trade-off</b> Magic links depend on email deliverability, which becomes a hard dependency on the transactional email provider. I judged that risk smaller than the drop-off and support cost of password auth.</span>
-    </div>
+      <h3>No passwords anywhere</h3>
+      <p>Sign-in runs on Google OAuth or a magic link. The product has no password field.</p>
+      <p>For a non-technical buyer signing up on a phone between jobs, every field is somewhere to give up, and every password becomes a support ticket I answer myself. Removing the field removes both.</p>
+      <p><strong>The cost:</strong> magic links make email deliverability a hard dependency. I judged that smaller than the drop-off and the support load of password auth.</p>
 
-    <div class="decision">
       <h3>Priced in cleaners, not seats</h3>
-      <p>Three tiers, and all of them are labelled by headcount — number of cleaners — rather than the per-seat model most SaaS borrows by default. A cleaning-team manager thinks in <em>"how many people do I have,"</em> never in <em>"how many licences do I need."</em></p>
-      <p>The free tier goes up to five cleaners and is a genuinely usable product, not a crippled demo. That forced the interface to hold up at zero revenue and made the upgrade prompt feel earned rather than extracted.</p>
-    </div>
-
-    <div class="shots">
-      <figure>
-        <img src="/projects/shiftsly/assets/landing-hero-ui.jpg" alt="Shiftsly public landing page">
-        <figcaption>The live landing page — bilingual, built for the UK market.</figcaption>
-      </figure>
+      <p>Three tiers, each labelled by headcount. A cleaning team manager thinks about how many people they have, never about how many licences they need, so the pricing page speaks in cleaners.</p>
+      <p>The free tier runs up to five cleaners and works as a real product rather than a crippled demo. That forced the interface to hold up at zero revenue, and it made the upgrade prompt feel earned.</p>
     </div>
   </section>
 
-  <section class="prose">
-    <h2>Closing the loop with real users</h2>
-    <p>Rather than guessing at friction, I built a usability-test flow into the product itself: a short multi-step form with NPS scoring, reviewed through an internal admin panel. Real users rate real friction points, and that feeds directly into what gets redesigned next.</p>
-    <p>I did the same thing for the business metrics. Instead of checking dashboards by hand, I built a scheduled agent that pulls live signals from Stripe and the product database twice a day and pushes a digest to me. It's a small piece of growth instrumentation, built for an audience of one — but it's the same signal-to-action loop any growth team runs.</p>
+  <div class="media-full shot" data-reveal>
+    <img src="/projects/shiftsly/assets/pricing.jpg" alt="Shiftsly pricing page with three tiers priced by number of cleaners" width="3200" height="1800">
+  </div>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Feedback</p>
+    <div class="read-body">
+      <h2>Closing the loop with real users</h2>
+      <p>Rather than guess at friction, I built a usability test into the product: a short multi-step form with NPS scoring that I review through an internal admin panel. Real users mark real friction, and that decides what I redesign next.</p>
+      <p>I did the same for the business side. Instead of opening dashboards by hand, I built an agent that pulls live signals from Stripe and the database twice a day and sends me a digest. It is growth instrumentation with an audience of one, running the same signal-to-action loop a growth team would.</p>
+    </div>
   </section>
 
-  <section class="prose">
-    <h2>What this project actually demonstrates</h2>
-    <p><strong>That I can find the problem, not just solve the given one.</strong> Nobody briefed Shiftsly. It came from noticing the same broken workflow repeatedly and checking whether the existing tools actually served that segment. That's the part of product design that happens before any screen exists.</p>
-    <p><strong>That I make trade-offs and can defend them.</strong> Every decision above cost something. The carousel gave up the week-glance. Passwordless auth took on a deliverability dependency. A real free tier gave away real value. I'd make all three again, and I can tell you why.</p>
-    <p><strong>That I own commercial surfaces.</strong> Pricing model, checkout, subscription lifecycle — live on Stripe, not sketched.</p>
-    <p><strong>On how it was built:</strong> auth, billing, the scheduling core and the growth agent were built in close pair-programming with Claude Code, from schema design through UI. It's how one person covers this much surface area without the quality falling over.</p>
-    <a class="back" href="/projects">&larr; All work</a>
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Takeaway</p>
+    <div class="read-body">
+      <h2>What this project shows</h2>
+      <p><strong>I find problems, not just solve assigned ones.</strong> Nobody briefed Shiftsly. It came from noticing the same broken workflow repeatedly and then checking whether existing tools served that segment. That work happens before any screen exists.</p>
+      <p><strong>I make trade-offs and can defend them.</strong> The carousel gave up the week glance. Passwordless auth took on a deliverability risk. A real free tier gave away real value. I would make all three again and can tell you why.</p>
+      <p><strong>I own commercial surfaces.</strong> Pricing model, checkout and subscription lifecycle, live on Stripe rather than sketched.</p>
+      <p>Auth, billing, the scheduling core and the growth agent were built in close pair programming with Claude Code, from schema through interface.</p>
+      <a class="back" href="/">&larr; All work</a>
+    </div>
   </section>
+
+  <footer class="foot">
+    <span>Yuri Roberto, Goiânia, Brazil</span>
+    <span><a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a></span>
+  </footer>
 
 </div>
-<footer class="site-footer">Yuri Roberto — Product Designer · Goiânia, Brazil</footer>
+
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
