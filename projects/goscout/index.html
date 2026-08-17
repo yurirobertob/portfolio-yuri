@@ -1,0 +1,307 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>GoScout — Yuri Roberto</title>
+<meta name="description" content="UX/UI case study: designing a mobile-first sports analytics product — paywall patterns, checkout UX, dark mode, and a bottom-nav system tested on real devices.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoScout — Yuri Roberto">
+<meta property="og:description" content="UX/UI case study: designing a mobile-first sports analytics product — paywall patterns, checkout UX, dark mode, and a bottom-nav system tested on real devices.">
+<meta property="og:url" content="https://yuriroberto.com/projects/goscout">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GoScout — Yuri Roberto">
+<meta name="twitter:description" content="UX/UI case study: designing a mobile-first sports analytics product — paywall patterns, checkout UX, dark mode, and a bottom-nav system tested on real devices.">
+<link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: rgb(255,255,255);
+    --text: rgb(48,48,48);
+    --accent: rgb(94,103,230);
+    --border: rgb(218,218,218);
+    --muted: rgb(143,143,143);
+    --card-bg: rgb(245,245,245);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: rgb(26,26,27);
+      --text: rgb(255,255,255);
+      --accent: rgb(208,255,113);
+      --border: rgb(92,92,92);
+      --muted: rgb(181,181,181);
+      --card-bg: rgb(51,51,51);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  header a { color: var(--text); text-decoration: none; font-size: 14px; }
+  .brand { font-family: "Antonio", sans-serif; font-size: 20px; letter-spacing: 0.02em; }
+  nav { display: flex; gap: 28px; }
+  nav a { position: relative; padding-bottom: 4px; transition: color 0.2s ease; }
+  nav a:hover { color: var(--accent); }
+  nav a.active { color: var(--accent); }
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -5px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 24px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -180px; right: -160px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 16px;
+  }
+  h1 {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+  }
+  .meta { display: flex; gap: 28px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .meta strong { color: var(--text); font-weight: 600; }
+
+  .hero-media {
+    max-width: 760px;
+    margin: 0 auto -32px;
+    padding: 0 24px;
+    position: relative;
+  }
+  .hero-media img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+  }
+
+  .arch-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 22px;
+  }
+  .arch-badges span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0 36px;
+  }
+  .demo-card {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .demo-card .demo-title {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .demo-card p { font-size: 14px; margin: 0; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 96px 24px 96px; }
+  h2 {
+    font-family: "Antonio", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.005em;
+    margin: 56px 0 18px;
+  }
+  main > p:first-of-type + h2:first-of-type,
+  h2:first-child { margin-top: 0; }
+  p { line-height: 1.65; font-size: 15.5px; margin: 0 0 16px; }
+  ul { line-height: 1.65; font-size: 15.5px; padding-left: 20px; margin: 0 0 16px; }
+  li { margin-bottom: 12px; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.9em;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .incident {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 0 0 20px;
+  }
+  .incident .step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .incident p { margin: 0; font-size: 15px; }
+
+  .note {
+    color: var(--muted);
+    font-size: 13.5px;
+    font-style: italic;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 48px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .back:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/">Yuri Roberto</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a class="active" href="/projects">Projects</a>
+    <a href="/case-studies">Case Studies</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">UX / UI Case Study</p>
+    <h1>GoScout: Designing a Mobile-First Product Around Trust and a Paywall</h1>
+    <div class="meta">
+      <span><strong>Role:</strong> Product designer &amp; front-end — IA, UI system, dark mode, paywall UX, checkout flow</span>
+      <span><strong>Surfaces:</strong> Mobile app shell, feed, match pages, subscription &amp; account, checkout</span>
+      <span><strong>Status:</strong> Live subscription product since July 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="hero-media">
+  <img src="/projects/goscout/assets/hero.jpg" alt="GoScout product screen">
+</div>
+
+<main>
+  <h2 style="margin-top:0">The design problem</h2>
+  <p>GoScout gives users automated sports-betting analysis, but the product only works if people trust a number they didn't calculate themselves. The UI had to do two conflicting jobs at once: read as calm and credible on a category (sports betting) that's usually loud and hype-driven, and clearly gate paid content without ever feeling like a bait-and-switch. Most users open it on a phone, mid-match, with one hand.</p>
+
+  <h2>Key UI decisions</h2>
+  <div class="arch-badges">
+    <span>Mobile nav</span>
+    <span>Paywall pattern</span>
+    <span>Dark mode</span>
+    <span>Checkout UX</span>
+    <span>Density</span>
+  </div>
+
+  <p><strong>Bottom navigation as a floating pill, not a bar:</strong> I designed the primary nav as a floating pill anchored to the safe area rather than a full-width bar, so it reads lighter on small screens and keeps content full-bleed underneath it. Getting this right took real-device testing, not just a simulator: Safari on iOS silently breaks fixed positioning combined with <code>calc()</code> and <code>env(safe-area-inset)</code> together, and Tailwind's arbitrary-value bracket syntax for a two-token class (<code>justify-[safe_center]</code>) doesn't compile at all. Both only showed up on a real iPhone, not in dev tools' device emulator, which is why every UI change since ships with a real-device check before I call it done.</p>
+
+  <p><strong>Paywall as a teaser, not a wall:</strong> free users see the full shape of every screen: names, matches, layout. What's blurred is only the number that has to be paid for, never the label or the context around it. That one rule (blur the value, never the noun next to it) came out of testing early versions where blurring whole cards just felt like the product was hiding something, and users bounced before ever seeing what they'd pay for.</p>
+
+  <p><strong>Dark mode as the default assumption:</strong> the product gets used at night, on a couch, watching a match. Every surface was designed dark-first, with light mode as the derived palette, not the other way around, because that's the actual usage context.</p>
+
+  <p><strong>Information density tuned per surface:</strong> the guiding rule across the whole system was Krug's "don't make me think": a compact grid view for scanning many picks fast, and a slower, spaced-out layout for the one screen where a user decides whether to trust a single number enough to act on it. Same design system, deliberately different density depending on whether the screen's job is scanning or deciding.</p>
+
+  <h2>Checkout &amp; subscription UX</h2>
+  <p>This is the part of the product closest to "payments experience": GoScout runs a real subscription flow end to end through a Brazilian payment provider (Hubla, the local equivalent of Stripe for this market), and I designed every screen in that funnel:</p>
+  <ul>
+    <li><strong>Checkout entry points</strong> that stay contextual, offered right where a free user hits the paywall, not just from one generic pricing page.</li>
+    <li><strong>Account &amp; subscription management</strong> screens where a user can see plan status, renewal date, and cancel without hunting for a support email.</li>
+    <li><strong>Skeleton-first paywall screens</strong> instead of a hard redirect on load: locked content renders its real skeleton immediately, then swaps to a lock state, so the page never feels broken or slow, it feels intentionally gated.</li>
+    <li><strong>Attribution-aware flows:</strong> I worked with the team's marketing pixel setup so the checkout UI never gets in the way of the tracking a paid-acquisition funnel actually depends on.</li>
+  </ul>
+
+  <h2>What this demonstrates</h2>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <div class="demo-title">Designing gated/paywalled products</div>
+      <p>Deciding exactly what to hide and what to reveal on a freemium surface, and testing that decision against real user drop-off, not just intuition.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Real subscription/checkout UX</div>
+      <p>End-to-end design of a live payment funnel: entry points, checkout, account management, and cancellation, on a real payment provider.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Mobile-first, verified on real devices</div>
+      <p>A UI system built for one-handed, phone-first use, with a habit of testing on actual hardware after being burned by simulator-only bugs.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">Systemized visual language</div>
+      <p>Dark mode as the default, consistent density rules across surfaces, and a documented "don't make me think" principle applied deliberately, not just aesthetics.</p>
+    </div>
+  </div>
+
+  <a class="back" href="/projects">&larr; All projects</a>
+</main>
+<footer>Yuri Roberto — UX/UI Designer</footer>
+</body>
+</html>
