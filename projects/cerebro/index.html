@@ -3,14 +3,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cerebro — Yuri Roberto</title>
-<meta name="description" content="An internal growth panel that reports every rate as the confidence interval its sample supports, built and redesigned alone inside my personal CRM.">
+<meta name="description" content="A personal command center for running every project at once: one screen turns a WhatsApp brief into an on-brand AI prompt, another reports growth as the confidence interval its sample supports.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cerebro — Yuri Roberto">
-<meta property="og:description" content="An internal growth panel that reports every rate as the confidence interval its sample supports.">
+<meta property="og:description" content="A personal command center for running every project at once, built and redesigned alone.">
 <meta property="og:url" content="https://yuriroberto.com/projects/cerebro">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cerebro — Yuri Roberto">
-<meta name="twitter:description" content="An internal growth panel that reports every rate as the confidence interval its sample supports.">
+<meta name="twitter:description" content="A personal command center for running every project at once.">
 <link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,17 +32,17 @@
 <div class="shell">
 
   <section class="page-head">
-    <p class="label">Growth engineering · Internal tooling</p>
+    <p class="label">Product systems · Internal tooling</p>
     <h1 class="page-h1">Cerebro</h1>
     <div class="read">
       <div class="read-label"></div>
       <div class="read-body">
-        <p class="page-lede">A panel inside my personal CRM that tells me whether a paying GoScout subscriber behaves differently from someone who never converts, and how much of that difference is real.</p>
+        <p class="page-lede">My command center for running several projects at once. One screen turns a WhatsApp brief into an on-brand AI prompt before I open a design tool. Another reports growth as the confidence interval its sample supports, not a number dressed up as one.</p>
         <dl class="facts">
           <div class="fact"><dt>Year</dt><dd>2026</dd></div>
-          <div class="fact"><dt>Role</dt><dd>Alone: statistical model, data pipeline, interface, frontend</dd></div>
-          <div class="fact"><dt>Stack</dt><dd>Next.js, TypeScript, Tailwind, Wilson score interval</dd></div>
-          <div class="fact"><dt>Status</dt><dd>Internal tool, no public URL</dd></div>
+          <div class="fact"><dt>Role</dt><dd>Alone: product decisions, automation, statistics, interface, frontend</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Next.js, TypeScript, Tailwind, WhatsApp and Pinterest APIs, Wilson score interval</dd></div>
+          <div class="fact"><dt>Status</dt><dd>Internal tool, used daily, no public URL</dd></div>
         </dl>
       </div>
     </div>
@@ -57,9 +57,9 @@
   <section class="block read" data-reveal>
     <p class="label read-label">The problem</p>
     <div class="read-body">
-      <h2>A number that lies with false precision</h2>
-      <p>Most growth dashboards report a bare percentage: 29% of subscribers did X. Cerebro's GoScout panel runs on 99 users. A four-person swing between two groups that small looks identical to a coin flip, and a bare percentage never admits it.</p>
-      <p>I built this panel to stop myself from reading noise as a strategy. Every rate on it is a Wilson 95% confidence interval, not a point estimate, and a row only earns the label &ldquo;signal&rdquo; when the paid interval and the free interval stop overlapping. Most rows on most days do not qualify, and the panel says that plainly instead of picking a winner anyway.</p>
+      <h2>Context scattered across a dozen tabs</h2>
+      <p>I run a product studio, a design agency relationship and my own growth experiments at the same time, and none of them share a home. A client brief lives in WhatsApp. The job that brief belongs to lives in an agency tool I have to log into separately. Brand guidelines live in a folder I have to remember to open. Whether a change I shipped last week moved a number lives nowhere until I go query it by hand.</p>
+      <p>Cerebro is the tool I built to stop losing that context between tabs. It is not one feature, it is the place decisions, references and results land automatically so I do not have to re-assemble them from memory every time I sit down to work.</p>
     </div>
   </section>
 
@@ -69,13 +69,14 @@
     <p class="label read-label">Scope</p>
     <div class="read-body">
       <h2>What I owned</h2>
-      <p>Cerebro itself is a broader CRM I run day to day. This panel is the one screen inside it built to hold up outside my own use.</p>
+      <p>Two screens inside Cerebro carry the real weight, and they solve unrelated problems.</p>
       <div class="scope">
+        <div>Automation<span>WhatsApp webhook, SIGA scraper, Telegram briefing</span></div>
+        <div>AI orchestration<span>Brand-conditioned prompt generation</span></div>
         <div>Statistical model<span>Wilson interval, signal threshold</span></div>
-        <div>Data pipeline<span>Reads one aggregated snapshot</span></div>
+        <div>External integrations<span>Pinterest OAuth, live board sync</span></div>
         <div>Interface design<span>Hairline sections, no card</span></div>
         <div>Frontend<span>Next.js, TypeScript, Tailwind</span></div>
-        <div>Information architecture<span>Route and nav cleanup</span></div>
       </div>
     </div>
   </section>
@@ -83,25 +84,41 @@
   <hr class="rule">
 
   <section class="block read" data-reveal>
-    <p class="label read-label">Design decisions</p>
+    <p class="label read-label">Agency workflow</p>
     <div class="read-body">
-      <h2>Four calls that shaped it</h2>
+      <h2>Turning a WhatsApp brief into an on-brand prompt</h2>
+      <p>Every morning the agency's producer posts the day's tasks in a WhatsApp group. Mine used to start by reading that thread, opening the agency's job tracker to find the brief behind each task, then opening a folder to remember what the client's brand is even supposed to look like. Three logins before the actual work began.</p>
+      <p>Cerebro's webhook now reads that group directly, matches the tasks addressed to me, and pulls the matching job from the agency tracker itself, a server-rendered tool with no public API, so the client-facing part scrapes an authenticated session instead of calling one. A Telegram message with the day's list lands on my phone before I have opened WhatsApp.</p>
+
+      <h3>A parser that read every brief as empty</h3>
+      <p>The producer marks tasks with a middle dot, not a hyphen. My first parser only recognised a hyphen, so for two days every brief she posted matched none of the detection rules and Cerebro reported nothing to do, silently, while a full task list sat unread in the group.</p>
+      <p><strong>What changed:</strong> the parser now accepts four different bullet characters, and the Telegram message dropped the corporate bullet-and-summary format I had first written for a plain list in the producer's own tone. Reading it should feel like reading her message, not a system's translation of it.</p>
+
+      <h3>A prompt with a brand attached</h3>
+      <p>Each client has a documented brand DNA on file: archetypes, tone, visual direction, a short list of words to use and a short list to avoid. Generating a prompt reads that document first, so a brief like &ldquo;anúncio de fim de semana&rdquo; comes back as an English prompt already carrying the client's palette, typography direction and vocabulary, formatted for whichever image model I am about to use.</p>
+      <p><strong>The cost:</strong> a DNA document has to exist and stay current for every client before this works, which is real upkeep. I keep it because a generic prompt produces on-trend images that are off-brand, and catching that after generation costs more than writing the document once.</p>
+    </div>
+  </section>
+
+  <div class="media-full shot" data-reveal>
+    <img src="/projects/cerebro/assets/agency.jpg" alt="Cerebro Prompts Visuais screen showing a client's brand DNA (archetypes, tone, visual direction, vocabulary) above the prompt generator" width="1367" height="743">
+    <figcaption>Brand DNA for a client, read automatically before any prompt gets written.</figcaption>
+  </div>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Growth panel</p>
+    <div class="read-body">
+      <h2>The panel that admits what it doesn't know</h2>
+      <p>The other screen tracks whether a paying GoScout subscriber behaves differently from someone who never converts. Most growth dashboards answer that with a bare percentage. Mine runs on 99 users, where a four-person swing between two groups looks identical to a coin flip, and a bare percentage never admits that.</p>
 
       <h3>A bar instead of a number</h3>
-      <p>Every rate renders as <code>IntervalBar</code>, a component that draws the Wilson 95% range as a filled span with a tick at the point estimate, width normalised so rows on the same table share one scale. This screen shows a range instead of a clean 29%, and a wide range is itself the finding.</p>
-      <p><strong>The cost:</strong> the page never gives up a tidy headline number to repeat in a meeting. I took that trade because the tidy number was the thing lying.</p>
-
-      <h3>A signal only counts when two bars stop touching</h3>
-      <p>A row gets the green &ldquo;sinal&rdquo; tag only when the subscriber interval and the free interval have no overlap. Sorting by raw percentage would surface whichever row got lucky this week; sorting by non-overlap surfaces the handful of rows the sample can defend.</p>
-      <p><strong>The cost:</strong> with under 100 users, most actions do not qualify yet, so the page mostly reports what it cannot conclude. A dashboard optimistic about a small sample teaches a false lesson, and I would rather ship the honest, thinner one.</p>
+      <p>Every rate renders as a Wilson 95% confidence interval, drawn as a filled span with a tick at the point estimate rather than printed as a clean figure. A row only earns the &ldquo;sinal&rdquo; tag when the paid interval and the free interval stop overlapping.</p>
+      <p><strong>The cost:</strong> with under 100 users, most rows do not qualify yet, so the page mostly reports what it cannot conclude. I would rather ship that admission than a chart that always looks decisive.</p>
 
       <h3>Card is dashboard vocabulary, so it left</h3>
-      <p>The first version boxed every section in a bordered card, indistinguishable from any SaaS admin panel. I redesigned it around the same rule I hold my own portfolio to: content first, frame gone. Sections separate by a hairline, numbers run large and typographic, and a numbered label replaces the plain heading.</p>
-      <p><strong>The cost:</strong> every other screen in Cerebro still uses cards, so this page now looks like it belongs to a different app. I left it that way on purpose. It is the page making the argument the rest can follow later.</p>
-
-      <h3>A number that only lives in the snapshot</h3>
-      <p>An early version of this page had a hand-written line comparing paid traffic speed against the account average, copied from a GA4 read while the platform was still reprocessing attribution. Two days later the real number had moved and the panel kept repeating the old one, because it lived in a sentence I wrote, not in the data.</p>
-      <p><strong>What changed:</strong> no number gets typed into the copy anymore. Every figure renders from the same snapshot the page reads live, so a stale read expires with the data instead of outliving it in a paragraph.</p>
+      <p>The first version boxed every section in a bordered card, indistinguishable from any SaaS admin panel. I redesigned it around the rule I hold my own portfolio to: content first, frame gone. Sections separate by a hairline, numbers run large and typographic, and every other screen in Cerebro still uses cards on purpose, this one is the argument the rest can follow later.</p>
     </div>
   </section>
 
@@ -133,10 +150,10 @@
     <p class="label read-label">Takeaway</p>
     <div class="read-body">
       <h2>What this project shows</h2>
-      <p><strong>I build the measurement before I trust the decision.</strong> A confidence interval on every row is more work than a percentage, and it is the difference between a dashboard and an instrument.</p>
-      <p><strong>I know when not to conclude.</strong> Most of this panel's rows say &ldquo;not yet known&rdquo; on any given day. Shipping that admission is harder than shipping a chart that always looks decisive.</p>
+      <p><strong>I build the infrastructure a project needs before I need it myself.</strong> A WhatsApp webhook, a scraper for a tool with no API, an OAuth integration for reference boards: none of it is glamorous, all of it is the difference between a brief I have to chase and one that is already waiting.</p>
+      <p><strong>I know when not to conclude.</strong> Most of the growth panel's rows say &ldquo;not yet known&rdquo; on any given day. Shipping that admission is harder than shipping a chart that always looks decisive.</p>
       <p><strong>My design rules travel.</strong> The same editorial discipline that shaped this portfolio, no card, no frame competing with the content, now runs an internal analytics screen I check daily.</p>
-      <p>I built the statistical model, the redesign and the information architecture cleanup in close pair programming with Claude Code.</p>
+      <p>I built the automation, the AI orchestration, the statistical model and the redesign in close pair programming with Claude Code.</p>
       <a class="back" href="/">&larr; All work</a>
     </div>
   </section>
