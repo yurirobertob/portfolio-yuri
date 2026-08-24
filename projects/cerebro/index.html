@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cerebro — Yuri Roberto</title>
+<meta name="description" content="An internal growth panel that reports every rate as the confidence interval its sample supports, built and redesigned alone inside my personal CRM.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cerebro — Yuri Roberto">
+<meta property="og:description" content="An internal growth panel that reports every rate as the confidence interval its sample supports.">
+<meta property="og:url" content="https://yuriroberto.com/projects/cerebro">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cerebro — Yuri Roberto">
+<meta name="twitter:description" content="An internal growth panel that reports every rate as the confidence interval its sample supports.">
+<link href="https://framerusercontent.com/images/eRcf2zzs9aXH1V6JlfILjVuc10.png" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.className += ' js';</script>
+</head>
+<body>
+
+<header class="masthead">
+  <a class="mark" href="/"><span class="dot"></span>Yuri Roberto</a>
+  <nav class="menu">
+    <a href="/">Work</a>
+    <a href="/about">About</a>
+    <a href="mailto:design@yuriroberto.com">Contact</a>
+  </nav>
+</header>
+
+<div class="shell">
+
+  <section class="page-head">
+    <p class="label">Growth engineering · Internal tooling</p>
+    <h1 class="page-h1">Cerebro</h1>
+    <div class="read">
+      <div class="read-label"></div>
+      <div class="read-body">
+        <p class="page-lede">A panel inside my personal CRM that tells me whether a paying GoScout subscriber behaves differently from someone who never converts, and how much of that difference is real.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Year</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Role</dt><dd>Alone: statistical model, data pipeline, interface, frontend</dd></div>
+          <div class="fact"><dt>Stack</dt><dd>Next.js, TypeScript, Tailwind, Wilson score interval</dd></div>
+          <div class="fact"><dt>Status</dt><dd>Internal tool, no public URL</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="media-full" data-reveal>
+    <img src="/projects/cerebro/assets/overview.jpg" alt="Cerebro growth panel showing user counts, subscriber rate and activation as confidence intervals" width="1342" height="743">
+  </div>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">The problem</p>
+    <div class="read-body">
+      <h2>A number that lies with false precision</h2>
+      <p>Most growth dashboards report a bare percentage: 29% of subscribers did X. Cerebro's GoScout panel runs on 99 users. A four-person swing between two groups that small looks identical to a coin flip, and a bare percentage never admits it.</p>
+      <p>I built this panel to stop myself from reading noise as a strategy. Every rate on it is a Wilson 95% confidence interval, not a point estimate, and a row only earns the label &ldquo;signal&rdquo; when the paid interval and the free interval stop overlapping. Most rows on most days do not qualify, and the panel says that plainly instead of picking a winner anyway.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Scope</p>
+    <div class="read-body">
+      <h2>What I owned</h2>
+      <p>Cerebro itself is a broader CRM I run day to day. This panel is the one screen inside it built to hold up outside my own use.</p>
+      <div class="scope">
+        <div>Statistical model<span>Wilson interval, signal threshold</span></div>
+        <div>Data pipeline<span>Reads one aggregated snapshot</span></div>
+        <div>Interface design<span>Hairline sections, no card</span></div>
+        <div>Frontend<span>Next.js, TypeScript, Tailwind</span></div>
+        <div>Information architecture<span>Route and nav cleanup</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Design decisions</p>
+    <div class="read-body">
+      <h2>Four calls that shaped it</h2>
+
+      <h3>A bar instead of a number</h3>
+      <p>Every rate renders as <code>IntervalBar</code>, a component that draws the Wilson 95% range as a filled span with a tick at the point estimate, width normalised so rows on the same table share one scale. This screen shows a range instead of a clean 29%, and a wide range is itself the finding.</p>
+      <p><strong>The cost:</strong> the page never gives up a tidy headline number to repeat in a meeting. I took that trade because the tidy number was the thing lying.</p>
+
+      <h3>A signal only counts when two bars stop touching</h3>
+      <p>A row gets the green &ldquo;sinal&rdquo; tag only when the subscriber interval and the free interval have no overlap. Sorting by raw percentage would surface whichever row got lucky this week; sorting by non-overlap surfaces the handful of rows the sample can defend.</p>
+      <p><strong>The cost:</strong> with under 100 users, most actions do not qualify yet, so the page mostly reports what it cannot conclude. A dashboard optimistic about a small sample teaches a false lesson, and I would rather ship the honest, thinner one.</p>
+
+      <h3>Card is dashboard vocabulary, so it left</h3>
+      <p>The first version boxed every section in a bordered card, indistinguishable from any SaaS admin panel. I redesigned it around the same rule I hold my own portfolio to: content first, frame gone. Sections separate by a hairline, numbers run large and typographic, and a numbered label replaces the plain heading.</p>
+      <p><strong>The cost:</strong> every other screen in Cerebro still uses cards, so this page now looks like it belongs to a different app. I left it that way on purpose. It is the page making the argument the rest can follow later.</p>
+
+      <h3>A number that only lives in the snapshot</h3>
+      <p>An early version of this page had a hand-written line comparing paid traffic speed against the account average, copied from a GA4 read while the platform was still reprocessing attribution. Two days later the real number had moved and the panel kept repeating the old one, because it lived in a sentence I wrote, not in the data.</p>
+      <p><strong>What changed:</strong> no number gets typed into the copy anymore. Every figure renders from the same snapshot the page reads live, so a stale read expires with the data instead of outliving it in a paragraph.</p>
+    </div>
+  </section>
+
+  <div class="media-pair" data-reveal>
+    <figure class="shot">
+      <img src="/projects/cerebro/assets/signals.jpg" alt="Cerebro table comparing subscriber and free-user confidence intervals per action, with a signal badge on rows that qualify" width="1342" height="743">
+      <figcaption>Signal only tags a row when the two bars stop touching.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/projects/cerebro/assets/channels.jpg" alt="Cerebro table breaking down signups and conversion by channel" width="1342" height="743">
+      <figcaption>Channel breakdown, with accounts too young to judge kept in their own column.</figcaption>
+    </figure>
+  </div>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">What it found</p>
+    <div class="read-body">
+      <h2>The one event the ad campaign is not optimising for</h2>
+      <p>Across the actions the panel tracks, accepting a push notification is the strongest candidate for an activation event: it shows up more in paying users than in free ones, and the two intervals clear each other by the widest margin on the table. The Meta campaign feeding this product still optimises toward &ldquo;Concluir inscrição&rdquo;, a step that happens before anyone has done anything the data ties to paying.</p>
+      <p>That gap is the panel doing its job. It surfaced one specific event to hand a media buyer, with the confidence interval attached so nobody mistakes it for certainty it has not earned.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block read" data-reveal>
+    <p class="label read-label">Takeaway</p>
+    <div class="read-body">
+      <h2>What this project shows</h2>
+      <p><strong>I build the measurement before I trust the decision.</strong> A confidence interval on every row is more work than a percentage, and it is the difference between a dashboard and an instrument.</p>
+      <p><strong>I know when not to conclude.</strong> Most of this panel's rows say &ldquo;not yet known&rdquo; on any given day. Shipping that admission is harder than shipping a chart that always looks decisive.</p>
+      <p><strong>My design rules travel.</strong> The same editorial discipline that shaped this portfolio, no card, no frame competing with the content, now runs an internal analytics screen I check daily.</p>
+      <p>I built the statistical model, the redesign and the information architecture cleanup in close pair programming with Claude Code.</p>
+      <a class="back" href="/">&larr; All work</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Yuri Roberto, Goiânia, Brazil</span>
+    <span><a href="mailto:design@yuriroberto.com">design@yuriroberto.com</a></span>
+  </footer>
+
+</div>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
